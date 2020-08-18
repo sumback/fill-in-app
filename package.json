@@ -1,17 +1,23 @@
 {
   "name": "fill-in-app",
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "generate": "nuxt generate",
-    "start": "nuxt start",
+    "dev": "tsoa routes && tsoa swagger && nuxt-ts",
+    "build": "tsoa routes && nuxt-ts build",
+    "generate": "nuxt-ts generate",
+    "start": "nuxt-ts start",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "nuxt": "^2.14.3"
+    "@nuxt/typescript-runtime": "^1.0.0",
+    "nuxt": "^2.14.3",
+    "tsoa": "^3.2.1"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.3",
-    "@nuxt/typescript-build": "^2.0.2"
+    "@nuxt/typescript-build": "^2.0.2",
+    "@types/express": "^4.17.7",
+    "@types/node": "^14.6.0",
+    "@types/swagger-ui-express": "^4.1.2",
+    "swagger-ui-express": "^4.1.4"
   }
 }
