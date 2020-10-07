@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^1.0.0",
-    "nuxt": "^2.14.3",
+    "nuxt": "^2.14.6",
     "tsoa": "^3.2.1"
   },
   "devDependencies": {
