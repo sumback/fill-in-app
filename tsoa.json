@@ -1,6 +1,6 @@
 {
   "entryFile": "api/index.ts",
-  "noImplicitAdditionalProperties": true,
+  "noImplicitAdditionalProperties": "silently-remove-extras",
   "controllerPathGlobs": [
     "./api/controllers/**/*controller.ts"
   ],

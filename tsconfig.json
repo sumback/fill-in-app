@@ -10,6 +10,7 @@
     ],
     "resolveJsonModule": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
@@ -28,6 +29,7 @@
       "@types/node",
       "@types/express",
       "@types/swagger-ui-express",
+      "@types/bcrypt",
       "@nuxt/types"
     ]
   },
