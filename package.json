@@ -15,7 +15,7 @@
     "bcrypt": "^5.0.0",
     "mongoose": "^5.10.9",
     "nuxt": "^2.14.3",
-    "tsoa": "^3.2.1",
+    "tsoa": "^3.3.0",
     "typescript-ioc": "^3.2.2"
   },
   "devDependencies": {
