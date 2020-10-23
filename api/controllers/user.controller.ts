@@ -13,7 +13,7 @@ import {
 import { Inject } from 'typescript-ioc';
 
 import { UserService } from '../services/user.service';
-import { UserDto } from '../../models/user';
+import { INewUser, IUpdateUser, IUser, UserDto } from '../../models/user';
 import { BadRequest, Conflict, NotFound } from '../../models/http-errors';
 
 @Route('users')
@@ -26,7 +26,7 @@ export class UserController extends Controller {
    * list all resources.
    */
   @Get()
-  public async getAll(): Promise<Array<UserDto>> {
+  public async getAll(): Promise<Array<IUser>> {
     return await this.userService.findAll();
   }
 
@@ -35,7 +35,7 @@ export class UserController extends Controller {
    * @param id The user's identifier
    */
   @Get('{id}')
-  public async get(@Path() id: string): Promise<UserDto | void> {
+  public async get(@Path() id: string): Promise<IUser | void> {
     const resource = await this.userService.findById(id);
     if (resource) {
       return resource;
@@ -49,9 +49,7 @@ export class UserController extends Controller {
    * @param pseudo The user's pseudo
    */
   @Get('pseudo/{pseudo}')
-  public async researchByPseudo(
-    @Path() pseudo: string
-  ): Promise<UserDto | void> {
+  public async researchByPseudo(@Path() pseudo: string): Promise<IUser | void> {
     const resource = await this.userService.findByPseudo(pseudo);
     if (resource) {
       return resource;
@@ -65,7 +63,7 @@ export class UserController extends Controller {
    */
   @Post()
   @SuccessResponse('201', 'Created')
-  public async create(@Body() requestBody: UserDto): Promise<void> {
+  public async create(@Body() requestBody: INewUser): Promise<void> {
     const resource: UserDto = requestBody;
     if (!resource.pseudo || !resource.password) {
       throw new BadRequest();
@@ -84,16 +82,17 @@ export class UserController extends Controller {
   @Put('{id}')
   public async update(
     @Path() id: string,
-    @Body() requestBody: UserDto
+    @Body() requestBody: IUpdateUser
   ): Promise<void> {
+    const resource: UserDto = requestBody;
     if (!(await this.userService.findById(id))) {
       throw new NotFound();
     } else if (
-      !requestBody.pseudo ||
-      !requestBody.oldPassword ||
+      !resource.pseudo ||
+      !resource.oldPassword ||
       !(await this.userService.checkPassword(
-        requestBody.pseudo,
-        requestBody.oldPassword
+        resource.pseudo,
+        resource.oldPassword
       ))
     ) {
       throw new BadRequest();

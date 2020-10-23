@@ -1,40 +1,29 @@
-import { Schema, Document } from 'mongoose';
+import { ObjectID } from 'typeorm';
 
-export interface IUser extends Document {
+export interface IUser {
+  _id?: ObjectID;
   pseudo: string;
-  passwordHash: string;
 }
 
-export class UserEntity {
+export interface INewUser {
   pseudo: string;
-  passwordHash: string;
-
-  constructor(pseudo: string, passwordHash: string) {
-    this.pseudo = pseudo;
-    this.passwordHash = passwordHash;
-  }
+  password?: string;
 }
 
-export class UserDto {
-  /*
-   * The user's UID
-   */
-  id?: string;
+export interface IUpdateUser {
+  pseudo: string;
+  password?: string;
+  oldPassword?: string;
+}
+
+export class UserDto implements IUser, INewUser, IUpdateUser {
+  _id?: ObjectID;
   pseudo: string;
   password?: string;
   oldPassword?: string;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  constructor(pseudo: string, args?: any) {
+  constructor(id: ObjectID | undefined, pseudo: string) {
+    this._id = id;
     this.pseudo = pseudo;
-    if (args) {
-      this.password = args.password;
-      this.oldPassword = args.oldPassword;
-    }
   }
 }
-
-export const UserSchema: Schema = new Schema({
-  pseudo: { type: String, required: true, unique: true },
-  passwordHash: { type: String, required: true }
-});

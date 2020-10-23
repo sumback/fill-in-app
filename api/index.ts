@@ -1,6 +1,7 @@
 import bodyParser from 'body-parser';
 import express, { NextFunction } from 'express';
-import mongoose from 'mongoose';
+import { createConnection, Connection } from 'typeorm';
+import 'reflect-metadata';
 import swaggerUI from 'swagger-ui-express';
 
 import { BadRequest, Conflict, NotFound } from '../models/http-errors';
@@ -11,6 +12,7 @@ require('dotenv').config({ path: './api/config/.env' });
 
 class App {
   public app: express.Application;
+  public connection: Connection | undefined;
 
   constructor() {
     this.app = express();
@@ -38,18 +40,15 @@ class App {
     }
   }
 
-  private mongodb() {
-    mongoose.set('debug', Boolean(process.env.MONGODB_DEBUG));
-    console.log(process.env.MONGODB_URI);
-    mongoose.connect(process.env.MONGODB_URI, {
+  private async mongodb(): Promise<void> {
+    this.connection = await createConnection({
+      // eslint-disable-next-line no-path-concat
+      entities: ['./**/*.entity.ts'],
+      logging: true,
+      synchronize: true,
       useNewUrlParser: true,
-      useFindAndModify: false
-    });
-    mongoose.connection.once('open', () => {
-      console.info('Connected to Mongo via Mongoose');
-    });
-    mongoose.connection.on('error', (err) => {
-      console.error('Unable to connect to Mongo via Mongoose', err);
+      type: 'mongodb',
+      url: process.env.MONGODB_URI
     });
   }
 

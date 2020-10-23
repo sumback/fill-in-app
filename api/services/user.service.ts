@@ -3,7 +3,8 @@ import * as bcrypt from 'bcrypt';
 
 import { UserMapper } from '../mappers/user.mapper';
 import { UserRepository } from '../repositories/user.repository';
-import { UserDto, UserEntity } from '../../models/user';
+import { UserEntity } from '../entity/user.entity';
+import { UserDto } from '../../models/user';
 
 @Singleton
 export class UserService {
@@ -17,17 +18,17 @@ export class UserService {
 
   public async findById(id: string): Promise<UserDto | null> {
     const entity = await this.userRepository.findById(id);
-    return UserMapper.mapDto(entity, entity.id);
+    return entity ? UserMapper.mapDto(entity) : null;
   }
 
   public async findByPseudo(pseudo: string): Promise<UserDto | null> {
-    const entities = await this.userRepository.findByPseudo(pseudo);
-    return UserMapper.mapFirstDto(entities);
+    const entity = await this.userRepository.findByPseudo(pseudo);
+    return entity ? UserMapper.mapDto(entity) : null;
   }
 
-  public async create(resource: UserDto): Promise<UserEntity> {
+  public async create(resource: UserDto): Promise<void> {
     const entity: UserEntity = await UserMapper.mapEntity(resource);
-    return this.userRepository.create(entity);
+    await this.userRepository.create(entity);
   }
 
   public async update(id: string, resource: UserDto): Promise<void> {
@@ -44,6 +45,6 @@ export class UserService {
     password: string
   ): Promise<boolean> {
     const entity = await this.userRepository.findByPseudo(pseudo);
-    return await bcrypt.compare(password, entity[0].passwordHash);
+    return await bcrypt.compare(password, entity.passwordHash);
   }
 }
