@@ -7,6 +7,7 @@ import {
   Post,
   Put,
   Route,
+  Security,
   SuccessResponse,
   Tags
 } from 'tsoa';
@@ -25,6 +26,7 @@ export class UserController extends Controller {
   /**
    * list all resources.
    */
+  @Security('jwt')
   @Get()
   public async getAll(): Promise<Array<IUser>> {
     return await this.userService.findAll();
@@ -34,6 +36,7 @@ export class UserController extends Controller {
    * get a resource by its id.
    * @param id The user's identifier
    */
+  @Security('jwt')
   @Get('{id}')
   public async get(@Path() id: string): Promise<IUser | void> {
     const resource = await this.userService.findById(id);
@@ -48,6 +51,7 @@ export class UserController extends Controller {
    * research a resource by its pseudo.
    * @param pseudo The user's pseudo
    */
+  @Security('jwt')
   @Get('pseudo/{pseudo}')
   public async researchByPseudo(@Path() pseudo: string): Promise<IUser | void> {
     const resource = await this.userService.findByPseudo(pseudo);
@@ -79,6 +83,7 @@ export class UserController extends Controller {
    * @param id The user's identifier
    * @param requestBody The user
    */
+  @Security('jwt')
   @Put('{id}')
   public async update(
     @Path() id: string,
@@ -105,6 +110,7 @@ export class UserController extends Controller {
    * delete an existing resource.
    * @param id The user's identifier
    */
+  @Security('jwt')
   @Delete('{id}')
   public async delete(@Path() id: string): Promise<void> {
     if (await this.userService.findById(id)) {

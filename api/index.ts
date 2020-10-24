@@ -4,7 +4,12 @@ import { createConnection, Connection } from 'typeorm';
 import 'reflect-metadata';
 import swaggerUI from 'swagger-ui-express';
 
-import { BadRequest, Conflict, NotFound } from '../models/http-errors';
+import {
+  BadRequest,
+  Conflict,
+  NotFound,
+  Unauthorized
+} from '../models/http-errors';
 import { RegisterRoutes } from './config/routes';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -47,6 +52,7 @@ class App {
       logging: true,
       synchronize: true,
       useNewUrlParser: true,
+      useUnifiedTopology: true,
       type: 'mongodb',
       url: process.env.MONGODB_URI
     });
@@ -58,15 +64,19 @@ class App {
     res: Response,
     next: NextFunction
   ) {
-    console.error(err);
     switch (err.constructor) {
       case BadRequest:
         return res.status(400).json({ message: 'Bad Request' });
+      case Unauthorized:
+        return res.status(401).json({ message: 'Unauthorized' });
       case NotFound:
         return res.status(404).json({ message: 'Not Found' });
       case Conflict:
         return res.status(409).json({ message: 'Conflict' });
       default:
+        if (process.env.NODE_ENV !== 'production') {
+          console.error(err);
+        }
         return res.status(500).json({ message: 'Internal Server Error' });
     }
   }

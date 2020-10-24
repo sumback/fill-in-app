@@ -7,9 +7,18 @@
   "spec": {
     "basePath": "/api",
     "outputDirectory": "./api/config",
-    "specVersion": 3
+    "specVersion": 3,
+    "securityDefinitions": {
+      "jwt": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "JWT Authorization store in cookie"
+      }
+    }
   },
   "routes": {
-    "routesDir": "./api/config"
+    "routesDir": "./api/config",
+    "authenticationModule": "./api/utils/authentication.ts"
   }
 }
