@@ -31,7 +31,7 @@ export class AuthenticationService {
     };
   }
 
-  public createCookie(tokenData: TokenData) {
+  public createCookie(tokenData: TokenData): string {
     return `Authorization=${tokenData.token}; HttpOnly; Max-Age=${tokenData.expiresIn}`;
   }
 }
