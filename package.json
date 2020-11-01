@@ -17,6 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.2",
     "nuxt": "^2.14.3",
+    "nuxt-i18n": "^6.15.3",
     "nuxt-property-decorator": "^2.8.8",
     "reflect-metadata": "^0.1.13",
     "tsoa": "^3.2.1",

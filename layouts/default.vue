@@ -3,21 +3,29 @@
     <md-app style="min-height: 100vh;">
       <md-app-toolbar class="md-primary">
         <div class="md-toolbar-row">
-          <md-button
-            v-if="!menuVisible"
-            class="md-icon-button"
-            @click="toggleMenu"
-          >
-            <md-icon>menu</md-icon>
-          </md-button>
+          <div class="md-toolbar-section-start">
+            <md-button
+              v-if="!menuVisible"
+              class="md-icon-button"
+              @click="toggleMenu"
+            >
+              <md-icon>menu</md-icon>
+            </md-button>
 
-          <span class="md-title">{{ name }}</span>
+            <span class="md-title">{{ name }}</span>
+          </div>
+
+          <div class="md-toolbar-section-end">
+            <md-button class="md-icon-button">
+              {{ $i18n.locale }}
+            </md-button>
+          </div>
         </div>
       </md-app-toolbar>
 
       <md-app-drawer :md-active.sync="menuVisible" md-persistent="full">
         <md-toolbar class="md-transparent" md-elevation="0">
-          <span>Navigation</span>
+          <span>{{ $t('menu.navigation') }}</span>
 
           <div class="md-toolbar-section-end">
             <md-button class="md-icon-button md-dense" @click="toggleMenu">
@@ -28,19 +36,19 @@
         <md-list>
           <md-list-item>
             <nuxt-link to="/sign-up">
-              S'inscrire
+              {{ $t('menu.signUp') }}
             </nuxt-link>
           </md-list-item>
 
           <md-list-item>
             <nuxt-link to="/login">
-              S'identifier
+              {{ $t('menu.login') }}
             </nuxt-link>
           </md-list-item>
 
           <md-list-item>
             <nuxt-link to="/users">
-              Utilisateurs
+              {{ $t('menu.users') }}
             </nuxt-link>
           </md-list-item>
         </md-list>

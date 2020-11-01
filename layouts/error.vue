@@ -1,3 +1,3 @@
 <template>
-  <md-empty-state md-icon="info" md-label="Page not found" />
+  <md-empty-state md-icon="info" :md-label="$t('pageNotFound')" />
 </template>
