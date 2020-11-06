@@ -41,8 +41,8 @@
           </md-list-item>
 
           <md-list-item>
-            <nuxt-link to="/login">
-              {{ $t('menu.login') }}
+            <nuxt-link to="/sign-in">
+              {{ $t('menu.signIn') }}
             </nuxt-link>
           </md-list-item>
 
