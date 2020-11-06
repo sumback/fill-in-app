@@ -15,7 +15,11 @@ export default {
     scss: ['assets/scss/main.scss']
   },
   modules: ['@nuxtjs/style-resources', 'nuxt-i18n'],
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/dotenv'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/router-extras'
+  ],
   plugins: [{ src: '~/plugins/vue-material' }],
   serverMiddleware: [{ path: '/api', handler: '~/api/index' }],
   i18n: {

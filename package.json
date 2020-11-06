@@ -30,6 +30,7 @@
     "@nuxt/typescript-build": "^2.0.2",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
+    "@nuxtjs/router-extras": "^1.1.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@types/bcrypt": "^3.0.0",
     "@types/cookie-parser": "^1.4.2",
