@@ -7,6 +7,7 @@ import swaggerUI from 'swagger-ui-express';
 import {
   BadRequest,
   Conflict,
+  Forbidden,
   NotFound,
   Unauthorized
 } from '../models/http-errors';
@@ -69,6 +70,8 @@ class App {
         return res.status(400).json({ message: 'Bad Request' });
       case Unauthorized:
         return res.status(401).json({ message: 'Unauthorized' });
+      case Forbidden:
+        return res.status(403).json({ message: 'Forbidden' });
       case NotFound:
         return res.status(404).json({ message: 'Not Found' });
       case Conflict:

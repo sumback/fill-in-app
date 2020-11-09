@@ -53,6 +53,18 @@
         </md-button>
       </md-card-actions>
     </md-card>
+
+    <md-snackbar
+      :md-active.sync="showErrorSnackbar"
+      :md-duration="2000"
+      md-position="center"
+      md-persistent
+    >
+      {{ $t('pages.sign.error.tryAgainLater') }}
+      <md-button class="md-primary" @click="showErrorSnackbar = false">
+        ×
+      </md-button>
+    </md-snackbar>
   </form>
 </template>
 

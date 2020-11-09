@@ -76,6 +76,7 @@ export class UserController extends Controller {
       throw new Conflict();
     }
     await this.userService.create(resource);
+    this.setStatus(201);
   }
 
   /**

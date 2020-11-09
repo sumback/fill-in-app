@@ -4,7 +4,7 @@ import { Inject } from 'typescript-ioc';
 import { AuthenticationService } from '../services/authentication.service';
 import { UserService } from '../services/user.service';
 import { INewUser } from '../../models/user';
-import { BadRequest, NotFound } from '../../models/http-errors';
+import { BadRequest, Forbidden, NotFound } from '../../models/http-errors';
 
 @Route('auth')
 @Tags('Auth')
@@ -20,15 +20,15 @@ export class AuthenticationController extends Controller {
     const resource = await this.userService.findByPseudo(requestBody.pseudo);
     if (!resource) {
       throw new NotFound();
+    } else if (!requestBody.pseudo || !requestBody.password) {
+      throw new BadRequest();
     } else if (
-      !requestBody.pseudo ||
-      !requestBody.password ||
       !(await this.userService.checkPassword(
         requestBody.pseudo,
         requestBody.password
       ))
     ) {
-      throw new BadRequest();
+      throw new Forbidden();
     } else {
       const tokenData = this.authService.createToken(resource);
       const cookie = this.authService.createCookie(tokenData);

@@ -8,6 +8,9 @@ export default {
   },
   pages: {
     sign: {
+      error: {
+        tryAgainLater: "Une erreur s'est produite, veuillez réessayer plus tard"
+      },
       password: 'Mot de passe',
       pseudo: 'Surnom',
       sending: {
