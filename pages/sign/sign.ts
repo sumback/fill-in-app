@@ -1,7 +1,8 @@
-import { Component, Vue } from 'nuxt-property-decorator';
-import { Route } from 'vue-router';
-
 import { AxiosResponse } from 'axios';
+import { Component, Ref, Vue } from 'nuxt-property-decorator';
+import { Route } from 'vue-router';
+import { ValidationObserver, ValidationProvider } from 'vee-validate';
+
 import { INewUser, UserDto } from '~/models/user';
 import { $axios } from '~/utils/axios-api';
 
@@ -10,13 +11,21 @@ enum SignPageRoute {
   SIGN_UP = 'sign/sign-up'
 }
 
-@Component
+@Component({
+  components: {
+    ValidationObserver,
+    ValidationProvider
+  }
+})
 export default class SignPage extends Vue {
   public display: SignPageRoute = SignPageRoute.SIGN_IN;
   public displayType = SignPageRoute;
   public form: INewUser = new UserDto(undefined, '');
   public sending = false;
   public showErrorSnackbar = false;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  @Ref('formObs') readonly formObs!: any;
 
   public submitForm(): void {
     if (this.display === SignPageRoute.SIGN_UP) {
@@ -52,16 +61,14 @@ export default class SignPage extends Vue {
         // TODO redirect to home
         break;
       case 201:
-        // TODO redirect to login
+        this.$router.push('login');
         break;
       case 403:
-        // TODO display error unknown password
+        this.formObs.setErrors({ password: [response.status] });
         break;
       case 404:
-        // TODO display error unknown user
-        break;
       case 409:
-        // TODO display error pseudo already use
+        this.formObs.setErrors({ pseudo: [response.status] });
         break;
     }
     this.sending = false;
