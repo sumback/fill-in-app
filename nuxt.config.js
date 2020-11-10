@@ -1,4 +1,5 @@
 export default {
+  ssr: false,
   typescript: {
     typeCheck: {
       eslint: {
@@ -22,7 +23,8 @@ export default {
   ],
   plugins: [
     { src: '~/plugins/vue-material' },
-    { src: '~/plugins/axios-accessor' }
+    { src: '~/plugins/axios-accessor' },
+    { src: '~/plugins/vee-validate' }
   ],
   serverMiddleware: [{ path: '/api', handler: '~/api/index' }],
   i18n: {

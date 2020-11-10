@@ -23,6 +23,7 @@
     "tsoa": "^3.2.1",
     "typeorm": "^0.2.28",
     "typescript-ioc": "^3.2.2",
+    "vee-validate": "^3.4.4",
     "vue-material": "^1.0.0-beta-15"
   },
   "devDependencies": {
