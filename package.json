@@ -1,5 +1,6 @@
 {
   "name": "fill-in-app",
+  "version": "1.0.0",
   "scripts": {
     "dev": "tsoa routes && tsoa swagger && nuxt-ts",
     "build": "tsoa routes && nuxt-ts build",
