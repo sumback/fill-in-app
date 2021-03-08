@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.3",
-    "@nuxt/typescript-build": "^2.0.2",
+    "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
