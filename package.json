@@ -28,7 +28,7 @@
     "vue-material": "^1.0.0-beta-15"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.3",
+    "@nuxt/types": "^2.15.3",
     "@nuxt/typescript-build": "^2.0.2",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
