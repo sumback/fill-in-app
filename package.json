@@ -13,9 +13,11 @@
     "vue3"
   ],
   "dependencies": {
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
+    "@types/node": "^17.0.0",
     "@vitejs/plugin-vue": "^2.0.0",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.3.0",
