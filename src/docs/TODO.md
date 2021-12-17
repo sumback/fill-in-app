@@ -6,7 +6,7 @@
 - [x] eslint
 - [x] [vue-router](https://next.router.vuejs.org/)
 - [ ] [vuex : State management pattern + library](https://vuex.vuejs.org/)
-- [ ] [i18n : Internationalization plugin](https://kazupon.github.io/vue-i18n/)
+- [x] [i18n : Internationalization plugin](https://kazupon.github.io/vue-i18n/)
 - [ ] [axios : Promise based HTTP client](https://axios-http.com/)
 - [ ] [jest : Testing framework](https://jestjs.io/)
 - [ ] [tailwind : Utility-first CSS framework](https://tailwindcss.com/docs)
