@@ -7,10 +7,6 @@ module.exports = {
   rules: {
     'vetur.validation.template': 0,
     'vue/require-default-prop': 'off',
-    quotes: [
-      'warn',
-      'single',
-      { avoidEscape: true, allowTemplateLiterals: false },
-    ],
+    quotes: ['warn', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
   },
 };

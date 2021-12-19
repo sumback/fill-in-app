@@ -28,10 +28,7 @@ LANGUAGES.forEach((language) => {
   };
 
   for (const key in domainLocales) {
-    const regLanguage = new RegExp(
-      `${camelCase(language, { pascalCase: true })}$`,
-      'g',
-    );
+    const regLanguage = new RegExp(`${camelCase(language, { pascalCase: true })}$`, 'g');
     const module = key.replace(camelCase(language, { pascalCase: true }), '');
 
     if (regLanguage.test(key)) {

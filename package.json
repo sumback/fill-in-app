@@ -13,10 +13,12 @@
     "vue3"
   ],
   "dependencies": {
+    "axios": "^0.24.0",
     "camelcase": "^6.2.1",
     "vue": "^3.2.25",
     "vue-i18n": "^9.1.9",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@intlify/vite-plugin-vue-i18n": "^3.2.1",

@@ -1,9 +1,8 @@
 <script setup lang="ts">
-defineProps({
-  msg: { type: String, default: '404' },
-});
+import { useStore } from 'vuex';
+
+const store = useStore();
+store.dispatch('setPage', { firstLevelPage: 'Error', secondLevelPage: '404' });
 </script>
 
-<template>
-  <h1>{{ msg }}</h1>
-</template>
+<template></template>
