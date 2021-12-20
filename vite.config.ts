@@ -22,6 +22,10 @@ export default (ctx: any) => {
         },
       },
     },
+    preview: {
+      host: String(process.env.HOST),
+      port: Number(process.env.PORT) || 5000,
+    },
     resolve: {
       alias: {
         '@/': `${path.resolve(__dirname, 'src')}/`,
