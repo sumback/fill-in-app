@@ -1,6 +1,6 @@
 //https://docs.atlas.mongodb.com/api/data-api-resources/
 import { AxiosResponse } from 'axios';
-import Http from './Http';
+import Http from './http';
 import {
   ConfigRequestDTO,
   FindOneRequestDTO,
