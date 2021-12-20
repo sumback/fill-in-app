@@ -1,4 +1,4 @@
-import Http from './Http';
+import Http from './http';
 import { AxiosResponse } from 'axios';
 import { UserDTO } from '../models/user';
 import MongoService from './mongo-service';
