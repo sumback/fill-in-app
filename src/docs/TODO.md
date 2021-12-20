@@ -9,6 +9,6 @@
 - [x] [i18n : Internationalization plugin](https://kazupon.github.io/vue-i18n/)
 - [x] [axios : Promise based HTTP client](https://axios-http.com/)
 - [ ] [jest : Testing framework](https://jestjs.io/)
-- [ ] [tailwind : Utility-first CSS framework](https://tailwindcss.com/docs)
+- [x] [tailwind : Utility-first CSS framework](https://tailwindcss.com/docs)
   - [components](https://tailwindcomponents.com/components/)
-- [ ] [fontawesome : Web’s icon library](https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=solid&m=free)
+- [x] [fontawesome : Web’s icon library](https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=solid&m=free)

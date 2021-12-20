@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 const Home = () => import('@/views/Home.vue');
+const Parameter = () => import('@/views/Parameter.vue');
 const NotFound = () => import('@/views/NotFound.vue');
 
 const routes: Array<RouteRecordRaw> = [
@@ -8,6 +9,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'home',
     component: Home,
+    meta: { requiresAuth: false },
+  },
+  {
+    path: '/parameter',
+    name: 'parameter',
+    component: Parameter,
     meta: { requiresAuth: false },
   },
   {

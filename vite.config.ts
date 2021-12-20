@@ -4,6 +4,7 @@ import eslintPlugin from 'vite-plugin-eslint';
 import vue from '@vitejs/plugin-vue';
 import viteI18n from '@intlify/vite-plugin-vue-i18n';
 import viteYaml from '@rollup/plugin-yaml';
+import viteSvgLoader from 'vite-svg-loader';
 
 export default (ctx: any) => {
   Object.assign(process.env, loadEnv(ctx.mode, process.cwd()));
@@ -34,6 +35,7 @@ export default (ctx: any) => {
         runtimeOnly: false,
       }),
       viteYaml(),
+      viteSvgLoader(),
     ],
   });
 };

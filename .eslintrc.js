@@ -6,6 +6,7 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:vue/vue3-recommended', 'prettier'],
   rules: {
     'vetur.validation.template': 0,
+    'vue/multi-word-component-names': 0,
     'vue/require-default-prop': 'off',
     quotes: ['warn', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
   },
