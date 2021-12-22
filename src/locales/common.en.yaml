@@ -1,2 +1,27 @@
-hello: Hello
-language: Language
+common:
+  pseudo: Pseudo
+  password: Password
+  firstname: First name
+  lastname: Last name
+
+parameter:
+  global: Global
+  language: Language
+
+signin:
+  title: Sign in
+  subtitle: Sign in to access your account
+  error: Your username or password is incorrect.
+  button: Sign in
+  hyperlink:
+    prefix: Don't have an account?
+    suffix: Sign up
+
+signup:
+  title: Sign up
+  subtitle: Enter your information to register
+  error: This pseudo already exists.
+  button: REGISTER NOW
+  hyperlink:
+    prefix: Already have an account?
+    suffix: Sign in

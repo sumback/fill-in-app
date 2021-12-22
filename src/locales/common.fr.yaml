@@ -1,2 +1,27 @@
-hello: Bonjour
-language: Langue
+common:
+  pseudo: Surnom
+  password: Mot de passe
+  firstname: Prénom
+  lastname: Nom de famille
+
+parameter:
+  global: Global
+  language: Langue
+
+signin:
+  title: Connectez-vous
+  subtitle: Connectez-vous pour accéder à votre compte
+  error: Votre nom d'utilisateur ou votre mot de passe est incorrect.
+  button: Connectez-vous
+  hyperlink:
+    prefix: Vous n'avez pas de compte ?
+    suffix: Inscrivez-vous
+
+signup:
+  title: Inscrivez-vous
+  subtitle: Entrez vos informations pour vous inscrire
+  error: Ce pseudo existe déjà.
+  button: S'INSCRIRE MAINTENANT
+  hyperlink:
+    prefix: Vous avez déjà un compte?
+    suffix: Connexion

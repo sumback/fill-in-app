@@ -1,11 +1,10 @@
-import vuex from 'vuex';
+import { Module } from 'vuex';
 import state from './state';
 import getters from './getters';
 import mutations from './mutations';
 import actions from './actions';
-import usersModule from './modules/users';
 
-const store = new vuex.Store({
+const usersModule: Module<any, any> = {
   state,
   // @ts-ignore
   getters,
@@ -13,9 +12,6 @@ const store = new vuex.Store({
   mutations,
   // @ts-ignore
   actions,
-  modules: {
-    users: usersModule,
-  },
-});
+};
 
-export default store;
+export default usersModule;
