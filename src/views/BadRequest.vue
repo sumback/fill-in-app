@@ -3,7 +3,7 @@ import { useStore } from 'vuex';
 import SircleScatter from '@/assets/svg/circle-scatter-haikei.svg?component';
 
 const store = useStore();
-store.dispatch('setPage', { firstLevelPage: 'Error', secondLevelPage: '404' });
+store.dispatch('setPage', { firstLevelPage: 'Error', secondLevelPage: '400' });
 </script>
 
 <!-- TODO: mobile, translate, svg size -->
