@@ -20,7 +20,7 @@
       "strict": true,
       "jsx": "preserve",
       "moduleResolution": "node",
-      "types": ["vite-svg-loader"]
+      "types": ["vite/client" ,"vite-svg-loader"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],

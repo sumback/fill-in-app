@@ -39,7 +39,7 @@ function checkPseudoAlreadyExist() {
 
 async function createAndRedirect() {
   const salt = await genSalt(10);
-  const passwordHash = await hash(password.value, salt);
+  const passwordHash = await hash(String(password.value), salt);
 
   store
     .dispatch('signUp', {
@@ -61,7 +61,7 @@ async function createAndRedirect() {
       <div class="md:flex w-full">
         <div class="hidden md:block w-1/2 bg-indigo-500 flex">
           <div class="max-h-20 flex">
-            <stacked-waves types="vite-svg-loader" />
+            <stacked-waves />
           </div>
         </div>
 
@@ -126,7 +126,7 @@ async function createAndRedirect() {
                   type="submit"
                   :disabled="isSubmitting"
                   class="block w-full max-w-xs mx-auto bg-indigo-500 font-semibold text-white p-2 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300">
-                  <ellipsis-loading v-if="isSubmitting" types="vite-svg-loader" class="h-6" />
+                  <ellipsis-loading v-if="isSubmitting" class="h-6" />
                   <span v-if="!isSubmitting">{{ $t('signup.button') }}</span>
                 </button>
 

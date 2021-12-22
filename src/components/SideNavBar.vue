@@ -11,7 +11,7 @@ const currentUser = computed(() => store.getters['getCurrentUser']);
   <div class="h-16 flex items-center w-full">
     <div class="w-10 md:w-16 mt-4 mx-auto">
       <router-link :to="{ name: 'home' }">
-        <fi-handwriting types="vite-svg-loader" />
+        <fi-handwriting />
       </router-link>
     </div>
   </div>

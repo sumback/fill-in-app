@@ -18,20 +18,18 @@ const loginFail = ref(false);
 function signIn() {
   isSubmitting.value = true;
   loginFail.value = false;
-  store.dispatch('signIn', {pseudo: pseudo.value, password: password.value}).then(
-    (response) => checkPassword(response.data.document),
+  store.dispatch('signIn', { pseudo: pseudo.value, password: password.value }).then(
+    async (response) => {
+      if (response.data.document && response.data.document.password && (await compare(String(password.value), response.data.document.password))) {
+        store.dispatch('login', response.data.document);
+        await router.push({ name: 'home' });
+      } else {
+        isSubmitting.value = false;
+        loginFail.value = true;
+      }
+    },
     () => router.push({ name: '400' }),
   );
-}
-
-async function checkPassword(data) {
-  if (data && data.password && await compare(password.value, data.password)) {
-    store.dispatch('login', data);
-    await router.push({ name: 'home' });
-  } else {
-    isSubmitting.value = false;
-    loginFail.value = true;
-  }
 }
 </script>
 
@@ -89,7 +87,7 @@ async function checkPassword(data) {
                   type="submit"
                   :disabled="isSubmitting"
                   class="block w-full max-w-xs mx-auto bg-indigo-500 font-semibold text-white p-2 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300">
-                  <ellipsis-loading v-if="isSubmitting" types="vite-svg-loader" class="h-6" />
+                  <ellipsis-loading v-if="isSubmitting" class="h-6" />
                   <span v-if="!isSubmitting">{{ $t('signin.button') }}</span>
                 </button>
 
@@ -106,7 +104,7 @@ async function checkPassword(data) {
 
         <div class="hidden md:block w-1/2 bg-indigo-500 flex">
           <div class="max-h-20 flex">
-            <low-poly-grid types="vite-svg-loader" />
+            <low-poly-grid />
           </div>
         </div>
       </div>
