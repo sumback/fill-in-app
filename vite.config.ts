@@ -41,8 +41,8 @@ export default (ctx: any) => {
       viteYaml(),
       viteSvgLoader({
         svgoConfig: {
-          multipass: true
-        }
+          multipass: true,
+        },
       }),
     ],
   });

@@ -1,22 +1,22 @@
 <script setup lang="ts">
 import { useStore } from 'vuex';
-import SircleScatter from '@/assets/svg/circle-scatter-haikei.svg?component';
+import LayeredSteps from '@/assets/svg/layered-steps-haikei.svg?component';
 
 const store = useStore();
 store.dispatch('setPage', { firstLevelPage: 'Error', secondLevelPage: '400' });
 </script>
 
-<!-- TODO: mobile, translate, svg size -->
+<!-- TODO: mobile, svg size -->
 <template>
   <div class="container mx-auto my-5">
     <div class="relative rounded-lg flex flex-col md:flex-row items-center md:shadow-xl md:h-72 mx-2 bg-white">
       <div class="z-0 order-1 md:order-2 relative w-full md:w-2/5 h-80 md:h-full overflow-hidden rounded-lg md:rounded-none md:rounded-r-lg">
         <div class="absolute inset-0 w-full h-full object-fill object-center bg-blue-400 bg-opacity-30 bg-cover bg-bottom">
-          <sircle-scatter />
+          <layered-steps />
         </div>
 
         <div class="md:hidden absolute inset-0 h-full p-6 pb-6 flex flex-col-reverse justify-start items-start bg-gradient-to-b from-transparent via-transparent to-gray-900">
-          <h4 class="w-full text-xl text-gray-100 leading-tight">Oops! Page not found</h4>
+          <h4 class="w-full text-xl text-gray-100 leading-tight">{{ $t('badrequest.title') }}</h4>
         </div>
         <svg class="hidden md:block absolute inset-y-0 h-full w-24 fill-current text-white -ml-12" viewBox="0 0 100 100" preserveAspectRatio="none">
           <polygon points="50,0 100,0 50,100 0,100" />
@@ -25,10 +25,10 @@ store.dispatch('setPage', { firstLevelPage: 'Error', secondLevelPage: '400' });
 
       <div class="z-10 order-2 md:order-1 w-full h-full md:w-3/5 flex items-center -mt-6 md:mt-0">
         <div class="p-8 md:pr-18 md:pl-14 md:py-12 mx-2 md:mx-0 h-full bg-white rounded-lg md:rounded-none md:rounded-l-lg shadow-xl md:shadow-none">
-          <h3 class="hidden md:block font-bold text-2xl text-gray-700">Oops! Page not found</h3>
-          <p class="text-gray-600 text-justify">Oops! The page you are looking for does not exist. It might have been moved or deleted.</p>
+          <h3 class="hidden md:block font-bold text-2xl text-gray-700">{{ $t('badrequest.title') }}</h3>
+          <p class="text-gray-600 text-justify">{{ $t('badrequest.detail') }}</p>
           <button class="m-2 bg-indigo-500 font-semibold text-white px-5 py-2 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300" @click="$router.push({ name: 'home' })">
-            <span class="pr-5">home</span>
+            <span class="pr-5">{{ $t('badrequest.button') }}</span>
             <fa icon="arrow-right" />
           </button>
         </div>

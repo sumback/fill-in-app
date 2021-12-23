@@ -25,3 +25,19 @@ signup:
   hyperlink:
     prefix: Vous avez déjà un compte?
     suffix: Connexion
+
+badrequest:
+  title: Euhhh, il semble y avoir un problème.
+  detail: Nous ne savons pas ce qui se passe! Nous vous suggérons de revenir plus tard.
+  button: Accueil
+
+unauthorized:
+  title: Heyy, aucune autorisation trouvée
+  detail1: Cette page n'est pas accessible au public!
+  detail2: Pour y accéder, veuillez d'abord vous connecter.
+  button: Se connecter
+
+notfound:
+  title: Oups ! Page non trouvée
+  detail: Oups ! La page que vous recherchez n'existe pas. Il a peut-être été déplacé ou supprimé.
+  button: Accueil

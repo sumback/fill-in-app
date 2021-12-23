@@ -25,3 +25,19 @@ signup:
   hyperlink:
     prefix: Already have an account?
     suffix: Sign in
+
+badrequest:
+  title: Uhhh, there seems to be a problem.
+  detail: We're unable to find out what's happening! We suggest you to go back or visit later.
+  button: Home
+
+unauthorized:
+  title: Heyy, no authorization found
+  detail1: This page is not publically available!
+  detail2: To access it please login first.
+  button: Sign in
+
+notfound:
+  title: Oops! Page not found
+  detail: Oops! The page you are looking for does not exist. It might have been moved or deleted.
+  button: Home
