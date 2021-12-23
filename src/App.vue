@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { useStore } from 'vuex';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import Copyright from '@/components/Copyright.vue';
 import SideNavBar from '@/components/SideNavBar.vue';
+
+const store = useStore();
+store.dispatch('autoLogin');
 </script>
 
 <template>
