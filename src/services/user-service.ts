@@ -12,12 +12,12 @@ export default class UserService extends MongoService<UserDTO> {
 
   public findOneById(id: string): Promise<AxiosResponse<FindOneResponseDTO<UserDTO>>> {
     const payload = new FindOneRequestDTO(this.configRequest);
-    payload.filter = { _id: id };
+    payload.filter = { _id: { $oid: id } };
     payload.projection = { password: 0 };
     return this.findOne(payload);
   }
 
-  public findOneByPseudo(pseudo: string, projection: object): Promise<AxiosResponse<FindOneResponseDTO<UserDTO>>> {
+  public findOneByPseudo(pseudo: string, projection?: object): Promise<AxiosResponse<FindOneResponseDTO<UserDTO>>> {
     const payload = new FindOneRequestDTO(this.configRequest);
     payload.filter = { pseudo: pseudo };
     payload.projection = projection;

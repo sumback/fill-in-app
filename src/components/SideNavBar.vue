@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 import FiHandwriting from '@/assets/svg/fi-handwriting-generator.svg?component';
 
 const store = useStore();
+const router = useRouter();
 const currentUser = computed(() => store.getters['getCurrentUser']);
+
+function logout() {
+  store.dispatch('logout');
+  router.push({ name: 'home' });
+}
 </script>
 
 <template>
@@ -30,6 +37,13 @@ const currentUser = computed(() => store.getters['getCurrentUser']);
           <fa icon="user-circle" />
         </span>
       </router-link>
+    </li>
+    <li v-if="currentUser" class="hover:bg-gray-100">
+      <div @click="logout()">
+        <span class="h-16 px-6 flex justify-center items-center w-full text-red-400">
+          <fa icon="sign-out-alt" />
+        </span>
+      </div>
     </li>
   </ul>
 

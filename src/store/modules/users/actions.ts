@@ -1,5 +1,6 @@
+import Cookies from 'js-cookie';
 import { userService } from '../../../services';
-import { IUser } from '../../../models/user';
+import { IUser, UserDTO } from '../../../models/user';
 
 const actions: { [key: string]: Function } = {
   checkPseudoToSignUp(context: any, payload: { pseudo: string }) {
@@ -20,16 +21,27 @@ const actions: { [key: string]: Function } = {
   },
   signIn(context: any, payload: IUser) {
     return new Promise((resolve, reject) => {
-      // @ts-ignore
-      userService.findOneByPseudo(payload.pseudo, undefined).then(
+      userService.findOneByPseudo(String(payload.pseudo)).then(
         (response) => resolve(response),
         (error) => reject(error),
       );
     });
   },
-  login(context: any, payload: IUser) {
-    // create token to save authentication
+  login(context: any, payload: UserDTO) {
+    //FIXME replace with a jwt
+    Cookies.set('currentUser', String(payload._id), { expires: 1 });
     context.commit('setCurrentUser', payload);
+  },
+  autoLogin(context: any) {
+    //FIXME replace with a jwt
+    const id = Cookies.get('currentUser');
+    if (id) {
+      userService.findOneById(id).then((response) => context.commit('setCurrentUser', response.data.document));
+    }
+  },
+  logout(context: any) {
+    Cookies.remove('currentUser');
+    context.commit('setCurrentUser', undefined);
   },
 };
 
