@@ -4,6 +4,21 @@ common:
   firstname: First name
   lastname: Last name
 
+# TODO improve translation
+home:
+  game1:
+    rules: Principle of the game
+    block1:
+      title: The principle of fill-in is very simple
+      detail1: Each player receives 12 response cards to start.
+      detail2: A first player (the "Question Master") reads a question card.
+      detail3: The other players choose a card from their deck and place it face up on the table.
+      detail4: The Question Master shuffles the white cards then rereads the question card with each white card. He chooses the best according to his own criteria.
+    block2:
+      title: How to win
+      detail1: The winner of the previous round keeps the question card he won and draws a new one to read it. He becomes the Question Master.
+      detail2: The first player who has 5 (or 10 or 20 for the craziest) blue cards wins the game.
+
 parameter:
   global: Global
   language: Language
