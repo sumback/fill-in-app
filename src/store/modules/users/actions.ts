@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
-import { userService } from '../../../services';
-import { IUser, UserDTO } from '../../../models/user';
+import { userService } from '@/services';
+import { IUser, UserDTO } from '@/models/user';
 
 const actions: { [key: string]: Function } = {
   checkPseudoToSignUp(context: any, payload: { pseudo: string }) {

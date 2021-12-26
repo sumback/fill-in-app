@@ -13,7 +13,7 @@ import {
   DeleteOneRequestDTO,
   DeleteManyRequestDTO,
   AggregateRequestDTO,
-} from '../models/mongo-request';
+} from '@/models/mongo-request';
 import {
   FindOneResponseDTO,
   FindResponseDTO,
@@ -25,7 +25,7 @@ import {
   DeleteOneResponseDTO,
   DeleteManyResponseDTO,
   AggregateResponseDTO,
-} from '../models/mongo-response';
+} from '@/models/mongo-response';
 
 export default abstract class MongoService<T> {
   protected http: Http;

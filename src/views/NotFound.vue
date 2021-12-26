@@ -6,7 +6,7 @@ const store = useStore();
 store.dispatch('setPage', { firstLevelPage: 'Error', secondLevelPage: '404' });
 </script>
 
-<!-- TODO: mobile, svg size -->
+<!-- TODO mobile, svg size -->
 <template>
   <div class="container mx-auto my-5">
     <div class="relative rounded-lg flex flex-col md:flex-row items-center md:shadow-xl md:h-72 mx-2 bg-white">

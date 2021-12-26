@@ -1,8 +1,11 @@
 common:
+  app: Fill-in!
   pseudo: Pseudo
   password: Password
   firstname: First name
   lastname: Last name
+  by: par
+  sumback: Sumback
 
 # TODO improve translation
 home:
@@ -56,3 +59,5 @@ notfound:
   title: Oops! Page not found
   detail: Oops! The page you are looking for does not exist. It might have been moved or deleted.
   button: Home
+
+copyright: Copyright ©
