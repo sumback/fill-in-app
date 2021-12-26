@@ -4,6 +4,7 @@ import getters from './getters';
 import mutations from './mutations';
 import actions from './actions';
 import usersModule from './modules/users';
+import cardsModule from './modules/cards';
 
 const store = new vuex.Store({
   state,
@@ -15,6 +16,7 @@ const store = new vuex.Store({
   actions,
   modules: {
     users: usersModule,
+    cards: cardsModule,
   },
 });
 

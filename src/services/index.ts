@@ -1,5 +1,7 @@
 import Http from './http';
 import UserService from './user-service';
+import QuestionCardService from './question-card-service';
+import ResponseCardService from './response-card-service';
 
 const httpService = new Http({
   baseURL: '/api/',
@@ -12,3 +14,5 @@ const httpService = new Http({
 });
 
 export const userService = new UserService(httpService);
+export const questionCardService = new QuestionCardService(httpService);
+export const responseCardService = new ResponseCardService(httpService);

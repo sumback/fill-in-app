@@ -4,8 +4,20 @@ common:
   password: Mot de passe
   firstname: Prénom
   lastname: Nom de famille
+  search: Rechercher
+  status: État
+  actions: Actions
   by: by
   sumback: Sumback
+
+cards:
+  card: Carte
+  question: Cartes questions
+  response: Cartes réponses
+  status:
+    active: Actif
+    pending: En attente
+    disabled: Désactivé
 
 home:
   game1:
@@ -60,3 +72,6 @@ notfound:
   button: Accueil
 
 copyright: Tous droits réserves ©
+
+pagination:
+  goto: Aller à la page
