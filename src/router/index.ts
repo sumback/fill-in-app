@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import store from '../store';
+import store from '@/store';
+const Cards = () => import('@/views/Cards.vue');
 const Home = () => import('@/views/Home.vue');
 const Parameter = () => import('@/views/Parameter.vue');
 const Profile = () => import('@/views/Profile.vue');
@@ -11,6 +12,12 @@ const Unauthorized = () => import('@/views/Unauthorized.vue');
 const NotFound = () => import('@/views/NotFound.vue');
 
 const routes: Array<RouteRecordRaw> = [
+  {
+    path: '/cards',
+    name: 'card-list',
+    component: Cards,
+    meta: { requiresAuth: true },
+  },
   {
     path: '/',
     name: 'home',
@@ -70,6 +77,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
+    //FIXME redirected before autoLogin
     if (!store.getters['getCurrentUser']) {
       next({
         path: '/401',

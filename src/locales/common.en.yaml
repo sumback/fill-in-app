@@ -4,8 +4,20 @@ common:
   password: Password
   firstname: First name
   lastname: Last name
+  search: Search
+  status: Status
+  actions: Actions
   by: par
   sumback: Sumback
+
+cards:
+  card: Card
+  question: Question cards
+  response: Response cards
+  status:
+    active: Active
+    pending: Pending
+    disabled: Disabled
 
 # TODO improve translation
 home:
@@ -61,3 +73,6 @@ notfound:
   button: Home
 
 copyright: Copyright ©
+
+pagination:
+  goto: Go to page

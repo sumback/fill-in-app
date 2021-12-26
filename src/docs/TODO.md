@@ -29,4 +29,4 @@
 - [x] Sign in page
 - [x] Sign up page
 - [ ] Users List page
-- [ ] Card List page
+- [x] Card List page
