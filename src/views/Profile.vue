@@ -7,7 +7,7 @@ store.dispatch('setPage', { firstLevelPage: 'Profile' });
 const currentUser = computed(() => store.getters['getCurrentUser']);
 </script>
 
-<!-- TODO update profile missing-->
+<!-- TODO update profile missing -->
 <template>
   <div class="w-full lg:w-4/12 px-4 mx-auto">
     <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">

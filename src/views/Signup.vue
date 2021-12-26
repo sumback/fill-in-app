@@ -49,6 +49,7 @@ async function createAndRedirect() {
       password: passwordHash,
     })
     .then(
+      //FIXME pseudo is not a props
       () => router.push({ name: 'sign-in', params: { pseudo: pseudo.value } }),
       () => router.push({ name: '400' }),
     );
@@ -79,7 +80,7 @@ async function createAndRedirect() {
                   <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                     <fa icon="user-circle" class="mdi mdi-email-outline text-gray-400 text-lg" />
                   </div>
-                  <input id="pseudo" v-model="pseudo" type="text" :disabled="isSubmitting" required class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith" />
+                  <input id="pseudo" v-model="pseudo" type="text" :disabled="isSubmitting" required class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="JohnsDoe" />
                 </div>
                 <p v-if="pseudoAlreadyExist" class="text-red-500 text-xs italic">{{ $t('signup.error') }}</p>
               </div>

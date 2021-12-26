@@ -6,7 +6,7 @@ const store = useStore();
 store.dispatch('setPage', { firstLevelPage: 'Home' });
 </script>
 
-<!-- TODO: design -->
+<!-- TODO design -->
 <template>
   <div class="flex items-center justify-center px-5 py-5">
     <div class="w-full lg:w-9/12 py-12 px-12 bg-gray-100 rounded-2xl shadow-xl z-20">

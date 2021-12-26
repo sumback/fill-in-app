@@ -1,8 +1,11 @@
 common:
+  app: Fill-in!
   pseudo: Surnom
   password: Mot de passe
   firstname: Prénom
   lastname: Nom de famille
+  by: by
+  sumback: Sumback
 
 home:
   game1:
@@ -55,3 +58,5 @@ notfound:
   title: Oups ! Page non trouvée
   detail: Oups ! La page que vous recherchez n'existe pas. Il a peut-être été déplacé ou supprimé.
   button: Accueil
+
+copyright: Tous droits réserves ©

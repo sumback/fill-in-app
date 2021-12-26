@@ -1,9 +1,9 @@
 import Http from './http';
 import { AxiosResponse } from 'axios';
-import { IUser, UserDTO } from '../models/user';
+import { IUser, UserDTO } from '@/models/user';
 import MongoService from './mongo-service';
-import { FindOneResponseDTO, FindResponseDTO, InsertOneResponseDTO } from '../models/mongo-response';
-import { FindOneRequestDTO, FindRequestDTO, InsertOneRequestDTO } from '../models/mongo-request';
+import { FindOneResponseDTO, FindResponseDTO, InsertOneResponseDTO } from '@/models/mongo-response';
+import { FindOneRequestDTO, FindRequestDTO, InsertOneRequestDTO } from '@/models/mongo-request';
 
 export default class UserService extends MongoService<UserDTO> {
   public constructor(http: Http) {
