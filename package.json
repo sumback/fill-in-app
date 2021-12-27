@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "start": "vite preview",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix client",
     "format": "prettier .  --write",
     "precommit": "npm run lint"
   },

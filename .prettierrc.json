@@ -8,7 +8,7 @@
   "arrowParens": "always",
   "overrides": [
     {
-      "files": "src/**/*.vue",
+      "files": "client/**/*.vue",
       "options": {
         "printWidth": 240
       }
