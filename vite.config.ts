@@ -28,11 +28,11 @@ export default (ctx: any) => {
     },
     resolve: {
       alias: {
-        '@/': `${path.resolve(__dirname, 'src')}/`,
+        '@/': `${path.resolve(__dirname, 'client')}/`,
       },
     },
-    //FIXME eslintPlugin() fail on loading '.vue' in router/index.ts
     plugins: [
+      eslintPlugin(),
       vue(),
       viteI18n({
         include: [path.resolve(__dirname, 'locales/**')],
