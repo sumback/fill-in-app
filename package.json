@@ -1,6 +1,7 @@
 {
   "name": "fill-in-app",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -11,8 +12,13 @@
   },
   "keywords": [
     "vite",
-    "vue3"
+    "vue3",
+    "tailwind"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumback/fill-in-app"
+  },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
