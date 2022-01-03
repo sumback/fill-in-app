@@ -16,7 +16,6 @@ const total = computed(() => sortedList.value.length);
 const sortedList = computed(() => updateList(attrs.items, sortKey.value));
 
 function updateList(items: Array<IPlayCard>, key: string | undefined) {
-  console.log(key);
   return items.filter((item) => sortByKey(item, key));
 }
 
@@ -29,7 +28,7 @@ function displayRow(index: number) {
 }
 </script>
 
-<!-- TODO responsive, translate, actions missing -->
+<!-- TODO responsive, actions missing -->
 <template>
   <div class="container mx-auto py-6 px-4">
     <h1 class="text-2xl text-gray-400 border-b border-gray border-solid">{{ attrs.title }}</h1>
@@ -79,6 +78,9 @@ function displayRow(index: number) {
         <!--            </div>-->
         <!--          </div>-->
         <!--        </td>-->
+      </tr>
+      <tr v-if="sortedList.length === 0">
+        <td class="py-3 px-6 text-left font-medium w-6/6" colspan="2">{{ $t('cards.search.empty') }}</td>
       </tr>
     </tbody>
   </table>
