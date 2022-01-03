@@ -1,4 +1,4 @@
-import { IMongoEntity } from './mongo-entity';
+import { IMongoEntity } from './entity';
 
 export interface IUser {
   pseudo?: string;

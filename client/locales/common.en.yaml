@@ -7,7 +7,8 @@ common:
   search: Search
   status: Status
   actions: Actions
-  by: par
+  players: Players
+  by: by
   sumback: Sumback
 
 cards:
@@ -20,6 +21,10 @@ cards:
     active: Active
     pending: Pending
     disabled: Disabled
+
+games:
+  title: All Games
+  join: Join
 
 # TODO improve translation
 home:

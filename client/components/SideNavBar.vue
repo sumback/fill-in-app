@@ -46,6 +46,13 @@ function logout() {
       </router-link>
     </li>
     <li v-if="currentUser" class="hover:bg-gray-100">
+      <router-link :to="{ name: 'games' }">
+        <span class="h-16 px-6 flex justify-center items-center w-full focus:text-indigo-500">
+          <fa icon="gamepad" />
+        </span>
+      </router-link>
+    </li>
+    <li v-if="currentUser" class="hover:bg-gray-100">
       <div @click="logout()">
         <span class="h-16 px-6 flex justify-center items-center w-full text-red-400">
           <fa icon="sign-out-alt" />
