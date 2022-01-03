@@ -1,7 +1,6 @@
 export enum GameState {
   WAITIN = 'WAITING',
-  STARTING = 'STARTING',
-  PICKING = 'PICKING',
+  PLAY = 'PLAY',
   BOSS_TURN = 'BOSS_TURN',
   RESULT = 'RESULT',
 }

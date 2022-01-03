@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import store from '@/store';
+
 const Cards = () => import('@/views/Cards.vue');
+const Game = () => import('@/views/Game.vue');
+const Games = () => import('@/views/Games.vue');
 const Home = () => import('@/views/Home.vue');
 const Parameter = () => import('@/views/Parameter.vue');
 const Profile = () => import('@/views/Profile.vue');
@@ -16,6 +19,18 @@ const routes: Array<RouteRecordRaw> = [
     path: '/cards',
     name: 'card-list',
     component: Cards,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: '/game/:id',
+    name: 'game',
+    component: Game,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: '/games',
+    name: 'games',
+    component: Games,
     meta: { requiresAuth: true },
   },
   {

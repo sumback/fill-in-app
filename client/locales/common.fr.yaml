@@ -6,8 +6,9 @@ common:
   lastname: Nom de famille
   search: Rechercher
   status: État
+  players: Joueurs
   actions: Actions
-  by: by
+  by: par
   sumback: Sumback
 
 cards:
@@ -20,6 +21,10 @@ cards:
     active: Actif
     pending: En attente
     disabled: Désactivé
+
+games:
+  title: Toutes les parties
+  join: Rejoindre
 
 home:
   game1:

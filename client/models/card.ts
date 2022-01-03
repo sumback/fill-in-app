@@ -1,4 +1,4 @@
-import { IMongoEntity } from './mongo-entity';
+import { IMongoEntity } from './entity';
 import { CardState } from './card-state';
 
 export interface ICard {
