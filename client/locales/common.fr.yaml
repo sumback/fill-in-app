@@ -22,6 +22,12 @@ cards:
     pending: En attente
     disabled: Désactivé
 
+game:
+  boss: Maître du jeu
+  player: Joueur
+  start: Commencer le jeu
+  chose: Commencer à choisir
+
 games:
   title: Toutes les parties
   join: Rejoindre
@@ -32,13 +38,13 @@ home:
     block1:
       title: Le principe de fill-in est très simple
       detail1: Chaque joueur reçoit 12 cartes réponse pour commencer.
-      detail2: Un premier joueur (le « Question Master ») lit une carte question (texte à trou).
+      detail2: Un premier joueur (le « Maître du jeu ») lit une carte question (texte à trou).
       detail3: Les autres joueurs choisissent une carte parmi leur jeu et la posent face retournée sur la table.
-      detail4: Le Question Master mélange les cartes blanches puis relit la carte question avec chaque carte blanche. Il choisit la meilleure selon ses propres critères.
+      detail4: Le Question Master mélange les cartes réponses puis relit la carte question avec chaque carte blanche. Il choisit la meilleure selon ses propres critères.
     block2:
       title: Comment gagner
-      detail1: Le vainqueur de la manche précédente garde la carte question qu’il a gagné et en pioche une nouvelle pour la lire. Il devient le Question Master.
-      detail2: Le premier joueur qui a 5 (ou 10 ou 20 pour les plus fous) cartes bleues a gagné la partie.
+      detail1: Le vainqueur de la manche précédente garde la carte question qu’il a gagné et en pioche une nouvelle pour la lire. Il devient le Maître du jeu.
+      detail2: Le premier joueur qui a 5 (ou 10 ou 20 pour les plus fous) cartes questions a gagné la partie.
 
 parameter:
   global: Global

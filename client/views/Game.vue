@@ -104,8 +104,8 @@ function shuffleObject(obj: { [key: string]: any }) {
   <div v-if="game && currentPlayer" class="w-full px-5 py-5">
     <div class="block p-2">
       <div v-for="(player, id, i) in game.players" :key="i" class="inline-flex items-center bg-white leading-none rounded-full p-2 shadow text-sm mr-2">
-        <span v-if="player.state === 'BOSS'" class="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center">BOSS</span>
-        <span v-if="player.state !== 'BOSS'" :class="{ 'bg-teal-500': player.state === 'CHOOSING', 'bg-lime-500': player.state === 'PICKED' }" class="inline-flex text-white rounded-full h-6 px-3 justify-center items-center">PLAYER</span>
+        <span v-if="player.state === 'BOSS'" class="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center">{{ $t('game.boss') }}</span>
+        <span v-if="player.state !== 'BOSS'" :class="{ 'bg-teal-500': player.state === 'CHOOSING', 'bg-lime-500': player.state === 'PICKED' }" class="inline-flex text-white rounded-full h-6 px-3 justify-center items-center">{{ $t('game.player') }}</span>
         <span class="inline-flex px-2">{{ player.pseudo }}</span>
         <span class="inline-flex px-2">{{ player.point }}</span>
       </div>
@@ -127,7 +127,7 @@ function shuffleObject(obj: { [key: string]: any }) {
 
       <div>
         <button class="m-2 bg-indigo-500 font-semibold text-white px-5 py-2 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300" @click="play()">
-          <span class="px-5">START</span>
+          <span class="px-5">{{ $t('game.start') }}</span>
         </button>
       </div>
     </div>
@@ -158,7 +158,7 @@ function shuffleObject(obj: { [key: string]: any }) {
     <!-- TODO replace with watcher -->
     <div v-if="game.state === 'PLAY' && currentPlayer.state === 'BOSS' && Object.keys(game.proposals).length === Object.keys(game.players).length">
       <button class="m-2 bg-indigo-500 font-semibold text-white px-5 py-2 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300" @click="bossTurn()">
-        <span class="px-5">CHOSE</span>
+        <span class="px-5">{{ $t('game.chose') }}</span>
       </button>
     </div>
 
