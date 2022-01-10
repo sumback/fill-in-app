@@ -22,6 +22,12 @@ cards:
     pending: Pending
     disabled: Disabled
 
+game:
+  boss: Question Master
+  player: Player
+  start: Start the game
+  chose: Start to choose
+
 games:
   title: All Games
   join: Join
@@ -35,11 +41,11 @@ home:
       detail1: Each player receives 12 response cards to start.
       detail2: A first player (the "Question Master") reads a question card.
       detail3: The other players choose a card from their deck and place it face up on the table.
-      detail4: The Question Master shuffles the white cards then rereads the question card with each white card. He chooses the best according to his own criteria.
+      detail4: The Question Master shuffles the response cards then rereads the question card with each white card. He chooses the best according to his own criteria.
     block2:
       title: How to win
       detail1: The winner of the previous round keeps the question card he won and draws a new one to read it. He becomes the Question Master.
-      detail2: The first player who has 5 (or 10 or 20 for the craziest) blue cards wins the game.
+      detail2: The first player who has 5 (or 10 or 20 for the craziest) question cards wins the game.
 
 parameter:
   global: Global
