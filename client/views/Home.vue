@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue';
 import { useStore } from 'vuex';
-import FillInHandwriting from '@/assets/svg/fill-in-handwriting-generator.svg?component';
+const FillInHandwriting = defineAsyncComponent(() => import('@/assets/svg/fill-in-handwriting-generator.svg'));
 
 const store = useStore();
 store.dispatch('setPage', { firstLevelPage: 'Home' });
@@ -15,7 +16,7 @@ store.dispatch('setPage', { firstLevelPage: 'Home' });
       </div>
       <ul>
         <li class="text-xs uppercase text-gray-400 border-b border-gray border-solid py-2 px-5 mb-2">{{ $t('home.game1.rules') }}</li>
-        <li class="grid grid-cols-10 gap-4 justify-center items-center cursor-pointer px-4 py-2 rounded-lg hover:bg-gray-50">
+        <li class="grid grid-cols-10 gap-4 justify-center items-center cursor-default px-4 py-2 rounded-lg hover:bg-gray-50">
           <div class="flex justify-center items-center">
             <fa icon="book" class="fa-2x text-indigo-600" />
           </div>
@@ -29,7 +30,7 @@ store.dispatch('setPage', { firstLevelPage: 'Home' });
             </p>
           </div>
         </li>
-        <li class="grid grid-cols-10 gap-4 justify-center items-center cursor-pointer px-4 py-2 rounded-lg hover:bg-gray-50">
+        <li class="grid grid-cols-10 gap-4 justify-center items-center cursor-default px-4 py-2 rounded-lg hover:bg-gray-50">
           <div class="flex justify-center items-center">
             <fa icon="book" class="fa-2x text-green-500" />
           </div>

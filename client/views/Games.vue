@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, defineAsyncComponent, ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { QuestionCardDTO, ResponseCardDTO } from '@/models/card';
 import { FirebaseArray } from '@/models/entity';
 import { IGame } from '@/models/games';
 import { UserDTO } from '@/models/user';
-import Pagination from '@/components/Pagination.vue';
+const Pagination = defineAsyncComponent(() => import('@/components/Pagination.vue'));
 
 const store = useStore();
 const router = useRouter();

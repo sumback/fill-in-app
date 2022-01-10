@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { defineAsyncComponent, ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { compare } from 'bcryptjs';
-import LowPolyGrid from '@/assets/svg/low-poly-grid-haikei.svg?component';
-import EllipsisLoading from '@/assets/svg/ellipsis-loading.svg?component';
+const LowPolyGrid = defineAsyncComponent(() => import('@/assets/svg/low-poly-grid-haikei.svg'));
+const EllipsisLoading = defineAsyncComponent(() => import('@/assets/svg/ellipsis-loading.svg'));
 
 const store = useStore();
 const router = useRouter();

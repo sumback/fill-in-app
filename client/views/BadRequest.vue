@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue';
 import { useStore } from 'vuex';
-import LayeredSteps from '@/assets/svg/layered-steps-haikei.svg?component';
+const LayeredSteps = defineAsyncComponent(() => import('@/assets/svg/layered-steps-haikei.svg'));
 
 const store = useStore();
 store.dispatch('setPage', { firstLevelPage: 'Error', secondLevelPage: '400' });

@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue';
 import { useStore } from 'vuex';
-import BlobScene from '@/assets/svg/blob-scene-haikei.svg?component';
+const BlobScene = defineAsyncComponent(() => import('@/assets/svg/blob-scene-haikei.svg'));
 
 const store = useStore();
 store.dispatch('setPage', { firstLevelPage: 'Error', secondLevelPage: '401' });

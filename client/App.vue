@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue';
 import { useStore } from 'vuex';
-import Breadcrumb from '@/components/Breadcrumb.vue';
-import Copyright from '@/components/Copyright.vue';
-import SideNavBar from '@/components/SideNavBar.vue';
+const Breadcrumb = defineAsyncComponent(() => import('@/components/Breadcrumb.vue'));
+const Copyright = defineAsyncComponent(() => import('@/components/Copyright.vue'));
+const SideNavBar = defineAsyncComponent(() => import('@/components/SideNavBar.vue'));
 
 const store = useStore();
 store.dispatch('autoLogin');
