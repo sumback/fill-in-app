@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
-import Hands from '@/components/Hands.vue';
-import { computed, ref } from 'vue';
+import { computed, defineAsyncComponent, ref } from 'vue';
 import { FirebaseArray } from '@/models/entity';
 import { IGame, IGamePlayer, IGameProposal, IGameResponseCard } from '@/models/games';
 import { UserDTO } from '@/models/user';
 import { GameState } from '@/models/game-state';
 import { PlayerState } from '@/models/player-state';
+const Hands = defineAsyncComponent(() => import('@/components/Hands.vue'));
 
 const route = useRoute();
 const store = useStore();
@@ -105,7 +105,9 @@ function shuffleObject(obj: { [key: string]: any }) {
     <div class="block p-2">
       <div v-for="(player, id, i) in game.players" :key="i" class="inline-flex items-center bg-white leading-none rounded-full p-2 shadow text-sm mr-2">
         <span v-if="player.state === 'BOSS'" class="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center">{{ $t('game.boss') }}</span>
-        <span v-if="player.state !== 'BOSS'" :class="{ 'bg-teal-500': player.state === 'CHOOSING', 'bg-lime-500': player.state === 'PICKED' }" class="inline-flex text-white rounded-full h-6 px-3 justify-center items-center">{{ $t('game.player') }}</span>
+        <span v-if="player.state !== 'BOSS'" :class="{ 'bg-teal-500': player.state === 'CHOOSING', 'bg-lime-500': player.state === 'PICKED' }" class="inline-flex text-white rounded-full h-6 px-3 justify-center items-center">{{
+          $t('game.player')
+        }}</span>
         <span class="inline-flex px-2">{{ player.pseudo }}</span>
         <span class="inline-flex px-2">{{ player.point }}</span>
       </div>

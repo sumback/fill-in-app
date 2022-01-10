@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, ref, useAttrs } from 'vue';
+import { computed, defineAsyncComponent, ref, useAttrs } from 'vue';
 import { CardListAttrs } from '@/models/attrs';
 import { IPlayCard } from '@/models/card';
-import EllipsisLoading from '@/assets/svg/ellipsis-loading.svg?component';
-import Pagination from './Pagination.vue';
+const EllipsisLoading = defineAsyncComponent(() => import('@/assets/svg/ellipsis-loading.svg'));
+const Pagination = defineAsyncComponent(() => import('@/components/Pagination.vue'));
 
 const attrs = <CardListAttrs>useAttrs();
 

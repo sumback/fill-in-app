@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { defineAsyncComponent, ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { genSalt, hash } from 'bcryptjs';
-import StackedWaves from '@/assets/svg/stacked-waves-haikei.svg?component';
-import EllipsisLoading from '@/assets/svg/ellipsis-loading.svg?component';
+const StackedWaves = defineAsyncComponent(() => import('@/assets/svg/stacked-waves-haikei.svg'));
+const EllipsisLoading = defineAsyncComponent(() => import('@/assets/svg/ellipsis-loading.svg'));
 
 const store = useStore();
 const router = useRouter();

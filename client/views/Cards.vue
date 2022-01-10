@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, defineAsyncComponent } from 'vue';
 import { useStore } from 'vuex';
-import CardList from '@/components/CardList.vue';
+const CardList = defineAsyncComponent(() => import('@/components/CardList.vue'));
 
 const store = useStore();
 store.dispatch('setPage', { firstLevelPage: 'Cards' });

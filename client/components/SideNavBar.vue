@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, defineAsyncComponent } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
-import FiHandwriting from '@/assets/svg/fi-handwriting-generator.svg?component';
+const FiHandwriting = defineAsyncComponent(() => import('@/assets/svg/fi-handwriting-generator.svg'));
 
 const store = useStore();
 const router = useRouter();

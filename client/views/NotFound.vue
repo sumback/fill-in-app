@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue';
 import { useStore } from 'vuex';
-import CircleScatter from '@/assets/svg/circle-scatter-haikei.svg?component';
+const CircleScatter = defineAsyncComponent(() => import('@/assets/svg/circle-scatter-haikei.svg'));
 
 const store = useStore();
 store.dispatch('setPage', { firstLevelPage: 'Error', secondLevelPage: '404' });
