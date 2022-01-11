@@ -9,7 +9,7 @@ store.dispatch('setPage', { firstLevelPage: 'Parameter' });
 </script>
 
 <template>
-  <div class="flex items-center justify-center px-5 py-5">
+  <div class="flex items-center justify-center">
     <div class="w-full lg:w-9/12 bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden">
       <div class="md:flex w-full">
         <div class="w-full py-10 px-5 md:px-10">

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
 import { useStore } from 'vuex';
-const BlobScene = defineAsyncComponent(() => import('@/assets/svg/blob-scene-haikei.svg'));
+const StackedWaves = defineAsyncComponent(() => import('@/assets/svg/stacked-waves-haikei.svg'));
 
 const store = useStore();
 store.dispatch('setPage', { firstLevelPage: 'Error', secondLevelPage: '401' });
@@ -10,10 +10,10 @@ store.dispatch('setPage', { firstLevelPage: 'Error', secondLevelPage: '401' });
 <!-- TODO mobile, svg size -->
 <template>
   <div class="container mx-auto my-5">
-    <div class="relative rounded-lg flex flex-col md:flex-row items-center md:shadow-xl md:h-72 mx-2 bg-white">
+    <div class="relative rounded-lg flex flex-col md:flex-row items-center md:shadow-xl md:h-72 mx-2 md:bg-white">
       <div class="z-0 order-1 md:order-2 relative w-full md:w-2/5 h-80 md:h-full overflow-hidden rounded-lg md:rounded-none md:rounded-r-lg">
         <div class="absolute inset-0 w-full h-full object-fill object-center bg-blue-400 bg-opacity-30 bg-cover bg-bottom">
-          <blob-scene />
+          <stacked-waves class="min-w-full min-h-full" />
         </div>
 
         <div class="md:hidden absolute inset-0 h-full p-6 pb-6 flex flex-col-reverse justify-start items-start bg-gradient-to-b from-transparent via-transparent to-gray-900">

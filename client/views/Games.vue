@@ -56,7 +56,7 @@ function displayRow(index: number) {
 
 <!-- TODO responsive -->
 <template>
-  <div class="flex items-center justify-center px-5 py-5">
+  <div class="flex items-center justify-center">
     <div class="w-full lg:w-9/12 py-5 px-5 bg-gray-100 rounded-2xl shadow-xl z-20">
       <div class="container mx-auto py-6 px-4">
         <h1 class="text-2xl text-gray-400 border-b border-gray border-solid">
