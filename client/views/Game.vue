@@ -101,7 +101,7 @@ function shuffleObject(obj: { [key: string]: any }) {
 </script>
 
 <template>
-  <div v-if="game && currentPlayer" class="w-full px-5 py-5">
+  <div v-if="game && currentPlayer" class="w-full">
     <div class="block p-2">
       <div v-for="(player, id, i) in game.players" :key="i" class="inline-flex items-center bg-white leading-none rounded-full p-2 shadow text-sm mr-2">
         <span v-if="player.state === 'BOSS'" class="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center">{{ $t('game.boss') }}</span>

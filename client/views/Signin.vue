@@ -34,10 +34,10 @@ function signIn() {
 </script>
 
 <template>
-  <div class="flex items-center justify-center px-5 py-5">
-    <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width: 1000px">
+  <div class="flex items-center justify-center">
+    <div class="text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden max-w-screen-lg">
       <div class="md:flex w-full">
-        <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
+        <div class="w-full bg-gray-100 md:w-1/2 py-10 px-5 md:px-10">
           <div class="text-center mb-10">
             <h1 class="font-bold text-3xl text-gray-900">{{ $t('signin.title') }}</h1>
             <p>{{ $t('signin.subtitle') }}</p>
@@ -103,9 +103,7 @@ function signIn() {
         </div>
 
         <div class="hidden md:block w-1/2 bg-indigo-500 flex">
-          <div class="max-h-20 flex">
-            <low-poly-grid />
-          </div>
+          <low-poly-grid class="min-w-full min-h-full" />
         </div>
       </div>
     </div>

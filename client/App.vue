@@ -20,7 +20,7 @@ store.dispatch('autoLogin');
         <breadcrumb />
       </header>
 
-      <main class="p-4 flex-grow justify-center items-center">
+      <main class="p-1 md:p-5 flex-grow justify-center items-center">
         <router-view />
       </main>
 
