@@ -49,12 +49,12 @@ function formatProposal(prop: IGameProposal): string {
     const n = Number(question.nbResponse) < Number(prop.responses.length) ? Number(question.nbResponse) : Number(prop.responses.length);
     for (let i = 0; i < n; i++) {
       let resp = String(game.value.responseCards[prop.responses[i]].response);
-      if(questionResponse.includes('______')){
+      if (questionResponse.includes('______')) {
         resp = resp.replace(/\.$/, '');
         resp = resp.charAt(0).toLowerCase() + resp.slice(1);
         questionResponse = questionResponse.replace('______', resp);
       } else {
-        questionResponse = questionResponse.concat(` ${resp}`)
+        questionResponse = questionResponse.concat(` ${resp}`);
       }
     }
   }
