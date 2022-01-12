@@ -43,7 +43,7 @@ function displayRow(index: number) {
     </div>
   </div>
 
-  <table v-if="attrs.items && attrs.items.length > 0" class="min-w-max w-full table-auto border-2">
+  <table v-if="attrs.items && attrs.items.length > 0" class="w-full table-auto border-2">
     <thead>
       <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
         <th class="py-3 px-6 text-left w-5/6">{{ $t('cards.card') }}</th>
@@ -54,11 +54,11 @@ function displayRow(index: number) {
 
     <tbody class="text-gray-600 text-sm font-light overflow-auto max-h-36">
       <tr v-for="(item, index) in sortedList" :key="index" :class="{ 'bg-gray-50': index % 2 === 0, 'border-gray-200': index % 2 !== 0 }" class="border-b hover:bg-gray-100">
-        <td v-if="displayRow(index)" class="py-3 px-6 text-left whitespace-nowrap">
+        <td v-if="displayRow(index)" class="py-3 px-6 text-left">
           <div class="flex items-center">
             <span v-if="item.response" class="font-medium">{{ item.response }}</span>
             <span v-if="item.question" class="font-medium">
-              <span class="badge mb-3 bg-gray-400 rounded-full px-2 py-1 text-center object-right-top text-white text-sm mr-1">{{ item.nbResponse }}</span>
+              <span class="badge mb-3 bg-gray-400 rounded-full px-2 py-1 text-center object-right-top text-white text-sm mr-1 hidden sm:inline">{{ item.nbResponse }}</span>
               <span>{{ item.question }}</span>
             </span>
           </div>

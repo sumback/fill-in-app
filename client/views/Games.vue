@@ -70,10 +70,10 @@ function displayRow(index: number) {
         </h1>
       </div>
 
-      <table v-if="games" class="min-w-max w-full table-auto border-2">
+      <table v-if="games" class="w-full table-auto border-2">
         <thead>
           <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-            <th class="py-3 px-6 text-center w-1/12">#</th>
+            <th class="py-3 px-6 text-center w-1/12 hidden sm:table-cell">#</th>
             <th class="py-3 px-6 text-left w-9/12">{{ $t('common.players') }}</th>
             <th class="py-3 px-6 text-center w-2/12">{{ $t('common.actions') }}</th>
           </tr>
@@ -81,7 +81,7 @@ function displayRow(index: number) {
 
         <tbody class="text-gray-600 text-sm font-light overflow-auto max-h-36">
           <tr v-for="(game, id, index) in games" :key="index" :class="{ 'bg-gray-50': index % 2 === 0, 'border-gray-200': index % 2 !== 0 }" class="border-b hover:bg-gray-100">
-            <td v-if="displayRow(index)" class="py-3 px-6 text-center">
+            <td v-if="displayRow(index)" class="py-3 px-6 text-center hidden sm:table-cell">
               <span class="badge mb-3 bg-gray-400 rounded-full px-2 py-1 text-center object-right-top text-white text-sm mr-1">{{ index + 1 }}</span>
             </td>
             <td v-if="displayRow(index)" class="py-3 px-6 text-left">
