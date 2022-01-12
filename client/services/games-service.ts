@@ -128,17 +128,14 @@ export default class GamesService {
 
   public discardProposalResponseCards(game: IGame): FirebaseArray<IGameResponseCard> {
     let array: FirebaseArray<IGameResponseCard> = {};
-    Object.keys(game.proposals)
-      .filter((key) => key != 'default')
+    Object.entries(game.proposals)
+      .filter(([key, value]) => key != 'default')
+      .map(([key, value]) => value.responses)
+      .reduce((pre, cur) => pre.concat(cur))
       .forEach((id: string) => {
-        const cards = Object.fromEntries(
-          Object.entries(game.responseCards).filter(([key, value]) => value.player === id),
-        );
-        Object.keys(cards).forEach((key: string) => {
-          const card = { [key]: cards[key] };
-          card[key].player = 'discard';
-          array = { ...array, ...card };
-        });
+        const card = { [id]: game.responseCards[id] };
+        card[id].player = 'discard';
+        array = { ...array, ...card };
       });
     return array;
   }
