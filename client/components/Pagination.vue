@@ -36,17 +36,17 @@ const pages = computed(() => {
 
 <template>
   <div class="min-w-max">
-    <section class="flex justify-between p-3 md:px-10 text-gray-700">
-      <ul class="flex">
-        <li v-if="attrs.current - attrs.pagerange > 1" class="h-8 w-8 mr-1 flex justify-center items-center rounded-full cursor-pointer" @click="changePage(1)">
+    <section class="flex justify-between align-middle place-items-center px-10 py-3 text-gray-700">
+      <ul class="flex align-middle place-items-center">
+        <li v-if="attrs.current - attrs.pagerange > 1" class="h-8 w-8 mr-1 hidden md:flex justify-center items-center rounded-full cursor-pointer" @click="changePage(1)">
           <fa icon="angle-double-left" />
         </li>
         <li v-if="attrs.current > 1" class="h-8 w-8 mr-1 flex justify-center items-center rounded-full cursor-pointer" @click="changePage(attrs.current - 1)">
           <fa icon="angle-left" />
         </li>
         <li v-if="attrs.current - attrs.pagerange > 1" class="h-8 w-8 mr-1 hidden md:flex justify-center items-center rounded-full cursor-pointer">...</li>
-        <li v-for="(page, index) in pages" :key="index" class="hidden md:flex h-8 font-medium rounded-full" @click="changePage(page)">
-          <div :class="{ 'bg-indigo-500 text-white': attrs.current === page }" class="w-8 flex justify-center items-center hidden cursor-pointer leading-5 transition duration-150 ease-in rounded-full">
+        <li v-for="(page, index) in pages" :key="index" class="flex h-8 font-medium rounded-full" @click="changePage(page)">
+          <div :class="{ 'bg-indigo-500 text-white': attrs.current === page, 'hidden md:flex': attrs.current !== page }" class="w-8 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full">
             {{ page }}
           </div>
         </li>
@@ -54,7 +54,7 @@ const pages = computed(() => {
         <li v-if="attrs.current < totalPages" class="h-8 w-8 mr-1 flex justify-center items-center rounded-full cursor-pointer" @click="changePage(attrs.current + 1)">
           <fa icon="angle-right" />
         </li>
-        <li v-if="attrs.current + attrs.pagerange < totalPages" class="h-8 w-8 mr-1 flex justify-center items-center rounded-full cursor-pointer" @click="changePage(totalPages)">
+        <li v-if="attrs.current + attrs.pagerange < totalPages" class="h-8 w-8 mr-1 hidden md:flex justify-center items-center rounded-full cursor-pointer" @click="changePage(totalPages)">
           <fa icon="angle-double-right" />
         </li>
       </ul>
