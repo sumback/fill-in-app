@@ -26,28 +26,28 @@ function logout() {
   <ul>
     <li v-if="!currentUser" class="hover:bg-gray-100">
       <router-link :to="{ name: 'sign-in' }">
-        <span class="h-16 px-6 flex justify-center items-center w-full focus:text-indigo-500">
+        <span class="h-16 px-6 flex justify-center items-center w-full" :class="{ 'bg-gray-200 text-indigo-500': ['sign-in', 'sign-up'].includes($route.name) }">
           <fa icon="sign-in-alt" />
         </span>
       </router-link>
     </li>
     <li v-if="currentUser" class="hover:bg-gray-100">
       <router-link :to="{ name: 'profile' }">
-        <span class="h-16 px-6 flex justify-center items-center w-full focus:text-indigo-500">
+        <span class="h-16 px-6 flex justify-center items-center w-full" :class="{ 'bg-gray-200 text-indigo-500': 'profile' === $route.name }">
           <fa icon="user-circle" />
         </span>
       </router-link>
     </li>
     <li v-if="currentUser" class="hover:bg-gray-100">
       <router-link :to="{ name: 'card-list' }">
-        <span class="h-16 px-6 flex justify-center items-center w-full focus:text-indigo-500">
+        <span class="h-16 px-6 flex justify-center items-center w-full" :class="{ 'bg-gray-200 text-indigo-500': 'card-list' === $route.name }">
           <fa icon="th-list" />
         </span>
       </router-link>
     </li>
     <li v-if="currentUser" class="hover:bg-gray-100">
       <router-link :to="{ name: 'games' }">
-        <span class="h-16 px-6 flex justify-center items-center w-full focus:text-indigo-500">
+        <span class="h-16 px-6 flex justify-center items-center w-full" :class="{ 'bg-gray-200 text-indigo-500': 'games' === $route.name }">
           <fa icon="gamepad" />
         </span>
       </router-link>
@@ -62,7 +62,7 @@ function logout() {
   </ul>
 
   <div class="mt-auto h-16 flex items-center w-full">
-    <router-link :to="{ name: 'parameter' }" class="h-16 mx-auto flex justify-center items-center w-full focus:text-indigo-500 hover:bg-gray-200 focus:outline-none">
+    <router-link :to="{ name: 'parameter' }" class="h-16 mx-auto flex justify-center items-center w-full hover:bg-gray-100" :class="{ 'bg-gray-200 text-indigo-500': 'parameter' === $route.name }">
       <fa icon="cog" />
     </router-link>
   </div>
