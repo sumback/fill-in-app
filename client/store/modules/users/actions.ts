@@ -29,15 +29,25 @@ const actions: { [key: string]: Function } = {
   },
   login(context: any, payload: UserDTO) {
     //FIXME replace with a jwt
-    Cookies.set('currentUser', String(payload._id), { expires: 1 });
+    Cookies.set('currentUser', String(payload._id), { expires: 7 });
     context.commit('setCurrentUser', payload);
   },
   autoLogin(context: any) {
-    //FIXME replace with a jwt
-    const id = Cookies.get('currentUser');
-    if (id) {
-      userService.findOneById(id).then((response) => context.commit('setCurrentUser', response.data.document));
-    }
+    return new Promise((resolve, reject) => {
+      //FIXME replace with a jwt
+      const id = Cookies.get('currentUser');
+      if (id) {
+        userService.findOneById(id).then(
+          (response) => {
+            context.commit('setCurrentUser', response.data.document);
+            resolve(response);
+          },
+          (error) => reject(error),
+        );
+      } else {
+        reject();
+      }
+    });
   },
   logout(context: any) {
     Cookies.remove('currentUser');
