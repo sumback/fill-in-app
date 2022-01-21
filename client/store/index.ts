@@ -3,9 +3,10 @@ import state from './state';
 import getters from './getters';
 import mutations from './mutations';
 import actions from './actions';
-import usersModule from './modules/users';
-import gamesModule from './modules/games';
 import cardsModule from './modules/cards';
+import gamesModule from './modules/games';
+import modalModule from './modules/modal';
+import usersModule from './modules/users';
 
 const store = new vuex.Store({
   state,
@@ -16,9 +17,10 @@ const store = new vuex.Store({
   // @ts-ignore
   actions,
   modules: {
-    users: usersModule,
-    games: gamesModule,
     cards: cardsModule,
+    games: gamesModule,
+    modal: modalModule,
+    users: usersModule,
   },
 });
 

@@ -88,3 +88,14 @@ copyright: Tous droits réservés ©
 
 pagination:
   goto: Aller à la page
+
+modal:
+  cookies:
+    title: Vous prendrez bien un cookie ?
+    detail1: Merci de jouer à fill-in!
+    detail2: Nous respectons votre vie privée et c’est grâce au cookie que nous vous permettons de jouer gratuitement.
+    detail3: Poursuivez en acceptant ces cookies, garnie avec les pépites du web.
+    detail4: Nous stockons et utilisons des informations non sensibles sur votre appareil pour les finalités suivantes &colon;
+    detail5: L’authenification, l'affichage de contenu personnalisé.
+    detail6: En cliquant sur "J'accepte", vous consentez aux finalités ci-dessus.
+    button: J'accepte

@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
 import { useStore } from 'vuex';
+
 const Breadcrumb = defineAsyncComponent(() => import('@/components/Breadcrumb.vue'));
 const Copyright = defineAsyncComponent(() => import('@/components/Copyright.vue'));
 const SideNavBar = defineAsyncComponent(() => import('@/components/SideNavBar.vue'));
+const Modal = defineAsyncComponent(() => import('@/components/Modal.vue'));
 
 const store = useStore();
 store.dispatch('autoLogin');
+store.dispatch('autoCookiesConsentModal');
 </script>
 
 <template>
@@ -20,13 +23,17 @@ store.dispatch('autoLogin');
         <breadcrumb />
       </header>
 
-      <main class="p-1 md:p-5 flex-grow justify-center items-center">
+      <main class="p-1 md:p-5 flex-grow justify-center items-center z-0">
         <router-view />
       </main>
 
       <footer class="p-2">
         <copyright />
       </footer>
+
+      <dialog class="w-screen h-screen flex relative bg-transparent z-0">
+        <modal />
+      </dialog>
     </div>
   </div>
 </template>

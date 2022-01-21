@@ -89,3 +89,15 @@ copyright: Copyright ©
 
 pagination:
   goto: Go to page
+
+# TODO improve translation
+modal:
+  cookies:
+    title: Would you like a cookie?
+    detail1: Thanks for playing fill-in!
+    detail2: We respect your privacy and it is thanks to the cookie that we allow you to play for free.
+    detail3: Continue by accepting these cookies.
+    detail4: We store and use non-sensitive information on your device for the following purposes &colon;
+    detail5: Authentication, display personalized content.
+    detail6: By clicking on "I accept", you consent to the above purposes.
+    button: I Accept
