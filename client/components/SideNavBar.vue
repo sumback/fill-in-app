@@ -26,7 +26,7 @@ function logout() {
   <ul>
     <li v-if="!currentUser" class="hover:bg-gray-100">
       <router-link :to="{ name: 'sign-in' }">
-        <span class="h-16 px-6 flex justify-center items-center w-full" :class="{ 'bg-gray-200 text-indigo-500': ['sign-in', 'sign-up'].includes($route.name) }">
+        <span class="h-16 px-6 flex justify-center items-center w-full" :class="{ 'bg-gray-200 text-indigo-500': ['sign-in', 'sign-up'].includes(String($route.name)) }">
           <fa icon="sign-in-alt" />
         </span>
       </router-link>
