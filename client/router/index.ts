@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import Cookies from 'js-cookie';
 import store from '@/store';
 
 const Cards = () => import('@/views/Cards.vue');
@@ -92,13 +93,16 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    //FIXME redirected before autoLogin
-    if (!store.getters['getCurrentUser']) {
-      next({
-        path: '/401',
-      });
-    } else {
+    const unauthorized = { path: '/401' };
+    if (store.getters['getCurrentUser']) {
       next();
+    } else if (Cookies.get('currentUser')) {
+      store.dispatch('autoLogin').then(
+        () => next(),
+        () => next(unauthorized),
+      );
+    } else {
+      next(unauthorized);
     }
   } else {
     next();
