@@ -31,7 +31,7 @@ store.dispatch('autoCookiesConsentModal');
         <copyright />
       </footer>
 
-      <dialog class="w-screen h-screen flex relative bg-transparent z-10">
+      <dialog class="pointer-events-none flex relative bg-transparent z-10">
         <modal />
       </dialog>
     </div>
