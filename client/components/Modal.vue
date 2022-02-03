@@ -19,7 +19,7 @@ function clickOutside() {
 </script>
 
 <template>
-  <div v-if="open" class="pointer-events-all p-7 flex justify-center fixed left-0 top-0 w-full h-full bg-gray-900 bg-opacity-50 z-50 transition-opacity duration-300 items-start overflow-x-hidden overflow-y-auto" @click="clickOutside">
+  <div v-if="open" class="pointer-events-auto p-7 flex justify-center fixed left-0 top-0 w-full h-full bg-gray-900 bg-opacity-50 z-50 transition-opacity duration-300 items-start overflow-x-hidden overflow-y-auto" @click="clickOutside">
     <div class="bg-gray-200 flex rounded-lg w-full sm:w-2/3 md:w-1/2 relative">
       <div class="flex flex-col items-start w-full">
         <div class="p-7 flex items-center justify-between w-full">
