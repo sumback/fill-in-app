@@ -61,6 +61,10 @@ function formatProposal(prop: IGameProposal): string {
   return questionResponse;
 }
 
+function getPlayer(id: string | number | undefined): IGamePlayer {
+  return game.value.players[String(id)];
+}
+
 function summitProposal() {
   store.dispatch('addProposal', { gameId: gameId.value, proposalId: currentUser.value._id, proposal: proposal.value });
   const currentPlayerPicked = { [String(currentUser.value._id)]: { ...currentPlayer.value, state: PlayerState.PICKED } };
@@ -107,11 +111,11 @@ function shuffleObject(obj: { [key: string]: any }) {
 <template>
   <div v-if="game && currentPlayer" class="w-full">
     <div class="block p-2">
-      <div v-for="(player, id, i) in game.players" :key="i" class="inline-flex items-center bg-white leading-none rounded-full p-2 shadow text-sm mr-2">
-        <span v-if="player.state === 'BOSS'" class="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center">{{ $t('game.boss') }}</span>
-        <span v-if="player.state !== 'BOSS'" :class="{ 'bg-teal-500': player.state === 'CHOOSING', 'bg-lime-500': player.state === 'PICKED' }" class="inline-flex text-white rounded-full h-6 px-3 justify-center items-center">{{
-          $t('game.player')
-        }}</span>
+      <div v-for="(player, id, i) in game.players" :key="i" class="inline-flex items-center bg-white leading-none rounded-full shadow text-sm p-2 mr-2 mb-2">
+        <span :class="{ 'bg-teal-500': player.state === 'CHOOSING', 'bg-lime-500': player.state === 'PICKED', ' bg-purple-600': player.state === 'BOSS' }" class="inline-flex text-white rounded-full h-6 px-3 justify-center items-center">
+          <span v-if="player.state !== 'BOSS'" class="hidden md:inline">{{ $t('game.player') }}</span>
+          <span v-if="player.state === 'BOSS'" class="hidden md:inline">{{ $t('game.boss') }}</span>
+        </span>
         <span class="inline-flex px-2">{{ player.pseudo }}</span>
         <span class="inline-flex px-2">{{ player.point }}</span>
       </div>
@@ -139,7 +143,7 @@ function shuffleObject(obj: { [key: string]: any }) {
     </div>
 
     <div v-if="game.state === 'PLAY'" class="block p-2">
-      <div class="inline-flex items-center bg-slate-800 leading-none text-white rounded-full p-2 shadow h-10">
+      <div class="inline-flex items-center bg-slate-800 leading-none text-white rounded-lg md:rounded-full h-auto p-2 shadow h-10">
         <span class="px-3">
           {{ question }}
         </span>
@@ -147,7 +151,7 @@ function shuffleObject(obj: { [key: string]: any }) {
     </div>
 
     <div v-if="game.state === 'PLAY' && proposal" class="block p-2">
-      <div class="inline-flex items-center bg-slate-500 leading-none text-white rounded-full p-2 shadow h-10">
+      <div class="inline-flex items-center bg-slate-500 leading-none text-white rounded-lg md:rounded-full h-auto p-2 shadow h-10">
         <span class="px-3">
           <fa icon="redo" class="mr-1 hover:text-red-500" @click="resetProposal(proposal)" />
           {{ formatProposal(proposal) }}
@@ -175,7 +179,10 @@ function shuffleObject(obj: { [key: string]: any }) {
     <div v-if="game.state === 'BOSS_TURN' || currentPlayer.state === 'PICKED'">
       <div v-for="(prop, id, i) in shuffleObject(game.proposals)" :key="i">
         <div v-if="id !== 'default'" class="block p-2">
-          <div class="inline-flex items-center bg-slate-500 leading-none text-white rounded-full p-2 shadow h-10">
+          <div class="inline-flex items-center bg-slate-500 leading-none text-white rounded-lg md:rounded-full h-auto p-2 shadow h-10">
+            <span v-if="currentPlayer.state !== 'BOSS'" class="inline-flex text-slate-500 bg-white rounded-full h-6 px-3 justify-center items-center">
+              {{ getPlayer(id).pseudo }}
+            </span>
             <span class="px-3">
               {{ formatProposal(prop) }}
             </span>
