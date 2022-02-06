@@ -33,6 +33,12 @@ const actions: { [key: string]: Function } = {
   drawResponseCards(context: any, payload: { id: string; game: IGame }) {
     gamesService.updateResponseCards(payload.id, gamesService.drawResponseCards(payload.game));
   },
+  saveProposal(context: any, payload: { id: string; game: IGame; player: string }) {
+    gamesService.addLastProposalSelected(payload.id, {
+      player: payload.player,
+      ...payload.game.proposals[payload.player],
+    });
+  },
   resetProposals(context: any, payload: { id: string; game: IGame }) {
     gamesService.updateQuestionCards(payload.id, gamesService.discardProposalQuestionCard(payload.game));
     gamesService.updateResponseCards(payload.id, gamesService.discardProposalResponseCards(payload.game));
@@ -43,7 +49,6 @@ const actions: { [key: string]: Function } = {
       responses: [],
     });
   },
-  //TODO drawQuestionCard and updateProposals
 };
 
 export default actions;
