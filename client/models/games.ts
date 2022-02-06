@@ -22,12 +22,17 @@ export interface IGameProposal {
   responses: string[];
 }
 
+export interface IGameOldProposal extends IGameProposal {
+  player?: string;
+}
+
 export interface IGame {
   state: GameState;
   players: FirebaseArray<IGamePlayer>;
   questionCards: FirebaseArray<IGameQuestionCard>;
   responseCards: FirebaseArray<IGameResponseCard>;
   proposals: FirebaseArray<IGameProposal>;
+  lastProposalSelected: FirebaseArray<IGameOldProposal>;
 }
 
 export class GameDTO implements IGame {
@@ -36,6 +41,7 @@ export class GameDTO implements IGame {
   questionCards: FirebaseArray<IGameQuestionCard>;
   responseCards: FirebaseArray<IGameResponseCard>;
   proposals: FirebaseArray<IGameProposal>;
+  lastProposalSelected: FirebaseArray<IGameOldProposal>;
 
   constructor(host: UserDTO, questionCards: QuestionCardDTO[], responseCards: ResponseCardDTO[]) {
     this.state = GameState.WAITIN;
@@ -45,6 +51,7 @@ export class GameDTO implements IGame {
     this.proposals = {
       ['default']: { question: Object.keys(getRandomQuestionCard(this.questionCards))[0], responses: [] },
     };
+    this.lastProposalSelected = {};
   }
 }
 

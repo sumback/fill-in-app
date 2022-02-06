@@ -14,6 +14,7 @@ const store = useStore();
 store.dispatch('setPage', { firstLevelPage: 'In game' });
 
 const gameId = ref<string>(String(route.params.id));
+const displayHistory = ref<boolean>(false);
 const proposal = ref<IGameProposal>();
 // const maxPoint = ref<number>(5);
 
@@ -43,7 +44,7 @@ function onHandClick(id: string) {
 }
 
 function formatProposal(prop: IGameProposal): string {
-  const question = game.value.questionCards[game.value.proposals['default'].question];
+  const question = game.value.questionCards[prop.question];
   let questionResponse = String(question.question);
   if (question.nbResponse && prop.responses) {
     const n = Number(question.nbResponse) < Number(prop.responses.length) ? Number(question.nbResponse) : Number(prop.responses.length);
@@ -79,6 +80,7 @@ function resetProposal(prop: IGameProposal | undefined) {
 }
 
 function selectProposal(id: string | number) {
+  store.dispatch('saveProposal', { id: gameId.value, game: game.value, player: id });
   store.dispatch('resetProposals', { id: gameId.value, game: game.value });
   const players = { ...game.value.players };
   Object.keys(players).forEach((key) => (players[key].state = PlayerState.CHOOSING));
@@ -119,6 +121,24 @@ function shuffleObject(obj: { [key: string]: any }) {
         <span class="inline-flex px-2">{{ player.pseudo }}</span>
         <span class="inline-flex px-2">{{ player.point }}</span>
       </div>
+      <button
+        v-if="game.lastProposalSelected"
+        :class="{ 'bg-gray-400 hover:bg-gray-500 text-white': displayHistory, 'bg-white hover:bg-gray-100': !displayHistory }"
+        class="inline-flex items-center leading-none rounded-full shadow text-sm p-2 align-middle focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300"
+        @click="displayHistory = !displayHistory">
+        <fa icon="history" />
+      </button>
+    </div>
+
+    <div v-if="game.lastProposalSelected && displayHistory" class="flex flex-col-reverse bg-gray-400 leading-none text-white rounded-lg h-auto p-2 shadow h-10">
+      <span v-for="(prop, id, i) in game.lastProposalSelected" :key="i" class="inline-flex items-center p-1">
+        <span class="inline-flex text-slate-500 bg-white rounded-full h-6 px-3 justify-center items-center">
+          {{ getPlayer(prop.player).pseudo }}
+        </span>
+        <span class="px-3">
+          {{ formatProposal(prop) }}
+        </span>
+      </span>
     </div>
 
     <div v-if="game.state === 'WAITING' && currentPlayer.state === 'BOSS' && Object.keys(game.players).length > 2" class="flex items-end">

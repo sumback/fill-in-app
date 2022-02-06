@@ -1,12 +1,13 @@
 import Firebase from './firebase';
 import { DatabaseReference, DataSnapshot } from '@firebase/database';
-import { child, get, onValue, ref, set, update } from 'firebase/database';
+import { child, get, onValue, ref, set, push, update } from 'firebase/database';
 import store from '@/store';
 import {
   GameDTO,
   getRandomQuestionCard,
   getRandomResponseCard,
   IGame,
+  IGameOldProposal,
   IGamePlayer,
   IGameProposal,
   IGameQuestionCard,
@@ -47,6 +48,10 @@ export default class GamesService {
 
   public addProposal(gameId: string, proposalId: string, proposal: IGameProposal): Promise<void> {
     return set(ref(this.firebase.database, 'games/' + gameId + '/proposals/' + proposalId), proposal);
+  }
+
+  public addLastProposalSelected(gameId: string, proposal: IGameOldProposal): void {
+    push(ref(this.firebase.database, 'games/' + gameId + '/lastProposalSelected'), proposal);
   }
 
   /**
