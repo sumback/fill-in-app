@@ -6,6 +6,7 @@ import { QuestionCardDTO, ResponseCardDTO } from '@/models/card';
 import { FirebaseArray } from '@/models/entity';
 import { IGame } from '@/models/games';
 import { UserDTO } from '@/models/user';
+import { CardState } from '@/models/card-state';
 const Pagination = defineAsyncComponent(() => import('@/components/Pagination.vue'));
 
 const store = useStore();
@@ -30,7 +31,11 @@ if (!responseCards.value) {
 }
 
 function newGame() {
-  store.dispatch('addGame', { host: currentUser.value, questionCards: questionCards.value, responseCards: responseCards.value });
+  store.dispatch('addGame', {
+    host: currentUser.value,
+    questionCards: questionCards.value.filter((c) => c.state === CardState.ACTIVE),
+    responseCards: responseCards.value.filter((c) => c.state === CardState.ACTIVE),
+  });
   router.push({ name: 'game', params: { id: currentUser.value._id } });
 }
 
