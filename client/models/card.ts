@@ -5,7 +5,9 @@ export interface ICard {
   state?: CardState;
 }
 
-export interface IPlayCard extends IQuestionCard, IResponseCard, ICard {}
+export interface IPlayCard extends IQuestionCard, IResponseCard, ICard {
+  edit?: boolean;
+}
 
 export interface IQuestionCard {
   question?: string;
