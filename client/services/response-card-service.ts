@@ -12,6 +12,7 @@ export default class ResponseCardService extends MongoService<ResponseCardDTO> {
 
   public findAll(): Promise<AxiosResponse<FindResponseDTO<ResponseCardDTO>>> {
     const payload = new FindRequestDTO(this.configRequest);
+    payload.limit = 50000;
     return this.find(payload);
   }
 
